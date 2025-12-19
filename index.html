@@ -192,5 +192,45 @@
     }
   </script>
 
+<!-- RSVP -->
+<section style="background-color:#ffffff; padding:60px 20px; text-align:center;">
+  <h2>Conferma la tua presenza</h2>
+  <div class="divider"></div>
+  <p>
+    La vostra presenza renderà questo giorno ancora più speciale.
+    <br />
+    Vi chiediamo gentilmente di confermare la partecipazione.
+  </p>
+
+  <form id="rsvpForm" style="max-width:420px; margin:40px auto 0; text-align:left;">
+    <label>Nome e Cognome</label>
+    <input type="text" required style="width:100%; padding:10px; margin:6px 0 16px; border-radius:6px; border:1px solid #ccc;" />
+
+    <label>Email</label>
+    <input type="email" required style="width:100%; padding:10px; margin:6px 0 16px; border-radius:6px; border:1px solid #ccc;" />
+
+    <label>Parteciperai?</label>
+    <select required style="width:100%; padding:10px; margin:6px 0 20px; border-radius:6px; border:1px solid #ccc;">
+      <option value="">Seleziona</option>
+      <option>Sì, ci saremo</option>
+      <option>No, purtroppo no</option>
+    </select>
+
+    <button type="submit" style="background-color:#8fa89b; color:#fff; border:none; padding:12px 28px; border-radius:30px; font-size:1rem; cursor:pointer;">
+      Invia conferma
+    </button>
+  </form>
+
+  <p id="rsvpMessage" style="margin-top:20px; font-weight:500;"></p>
+</section>
+
+<script>
+  document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('rsvpMessage').innerText = 'Grazie di cuore! La tua risposta è stata ricevuta 💚';
+    this.reset();
+  });
+</script>
+
 </body>
 </html>
