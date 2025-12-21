@@ -42,23 +42,7 @@
       font-size: 1.05rem;
       line-height: 1.8;
     }
-    .hero {
-      background: linear-gradient(rgba(143,168,155,0.35), rgba(143,168,155,0.35)), url('hero.jpg') center/cover no-repeat;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0 20px;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-    }
-    .hero span {
-      letter-spacing: 2px;
-      font-size: 1.1rem;
-    }
+
     .divider {
       width: 60px;
       height: 2px;
@@ -80,10 +64,56 @@
 <body>
 
   <!-- HERO -->
-  <section class="hero">
-    <h1>Francesco & Roberta</h1>
-    <span>1 Maggio 2026</span>
-  </section>
+ .hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(143,168,155,0.45);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #f6f2ea;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
 
   <!-- STORIA -->
   <section>
