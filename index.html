@@ -11,8 +11,8 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      color: #2f2f2f;
       background-color: #f5f7f4;
+      color: #2f2f2f;
     }
 
     section {
@@ -40,7 +40,7 @@
       line-height: 1.8;
     }
 
-    /* HERO SLIDESHOW */
+    /* HERO */
     .hero {
       position: relative;
       height: 100vh;
@@ -56,9 +56,7 @@
       transition: opacity 1.5s ease-in-out;
     }
 
-    .hero-slide.active {
-      opacity: 1;
-    }
+    .hero-slide.active { opacity: 1; }
 
     .hero-overlay {
       position: absolute;
@@ -75,27 +73,22 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
       color: #f6f2ea;
+      text-align: center;
     }
 
     .hero-content h1 {
       font-size: 3.5rem;
       letter-spacing: 2px;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
 
     .hero-content p {
       font-size: 1.3rem;
       letter-spacing: 2px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
 
     @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 2.4rem;
-      }
+      .hero-content h1 { font-size: 2.3rem; }
     }
 
     .divider {
@@ -105,9 +98,7 @@
       margin: 30px auto;
     }
 
-    .location {
-      font-weight: 500;
-    }
+    .location { font-weight: 500; }
 
     iframe {
       width: 100%;
@@ -117,30 +108,12 @@
       margin-top: 30px;
     }
 
-    /* RICEVIMENTO CON SFONDO */
-    .ricevimento-bg {
-      background-image: url('images/ricevimento.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      padding: 120px 20px;
-      color: #fff;
-    }
-
-    .ricevimento-overlay {
-      background: rgba(47, 47, 47, 0.55);
-      max-width: 900px;
-      margin: auto;
-      padding: 60px 20px;
-      border-radius: 12px;
-    }
-
-    .ricevimento-bg h2 {
-      color: #fff;
-    }
-
-    .ricevimento-bg h2::after {
-      color: #c9a24d;
+    /* IMMAGINE RICEVIMENTO */
+    .ricevimento-img {
+      width: 100%;
+      border-radius: 16px;
+      margin: 40px 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
     form {
@@ -149,34 +122,28 @@
       text-align: left;
     }
 
-    label {
-      font-weight: 500;
-    }
-
     input, select {
       width: 100%;
       padding: 10px;
-      margin: 6px 0 16px;
+      margin-bottom: 16px;
       border-radius: 6px;
       border: 1px solid #ccc;
     }
 
     button {
-      background-color: #8fa89b;
+      background: #8fa89b;
       color: #fff;
       border: none;
       padding: 12px 28px;
       border-radius: 30px;
-      font-size: 1rem;
       cursor: pointer;
     }
 
     footer {
-      background-color: #8fa89b;
+      background: #8fa89b;
       color: #fff;
       padding: 40px 20px;
       text-align: center;
-      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -185,17 +152,17 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-slide active" style="background-image: url('images/hero1.jpg');"></div>
-  <div class="hero-slide" style="background-image: url('images/hero2.jpg');"></div>
-  <div class="hero-slide" style="background-image: url('images/hero3.jpg');"></div>
-  <div class="hero-slide" style="background-image: url('images/hero4.jpg');"></div>
-  <div class="hero-slide" style="background-image: url('images/hero5.jpg');"></div>
-  <div class="hero-slide" style="background-image: url('images/hero6.jpg');"></div>
+  <div class="hero-slide active" style="background-image:url('images/hero1.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero2.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero3.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero4.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero5.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero6.jpg')"></div>
 
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <h1>Francesco &amp; Roberta</h1>
+    <h1>Francesco & Roberta</h1>
     <p>1 Maggio 2026</p>
   </div>
 </section>
@@ -206,8 +173,7 @@
   <div class="divider"></div>
   <p>
     Ci siamo incontrati, ci siamo riconosciuti e ci siamo scelti.<br><br>
-    Il 1 Maggio 2026 inizierà il capitolo più bello della nostra storia,
-    e saremo felici di viverlo insieme a voi.
+    Il 1 Maggio 2026 inizierà il capitolo più bello della nostra storia.
   </p>
 </section>
 
@@ -216,135 +182,74 @@
   <h2>La cerimonia</h2>
   <div class="divider"></div>
   <p class="location">
-    Giovedì 1 Maggio 2026 – ore 10:30<br>
-    Chiesa Mater Ecclesiae<br>
-    Via Concilio Vaticano II<br>
-    Bernalda (MT)
+    Chiesa Mater Ecclesiae – Bernalda (MT)<br>
+    Ore 10:30
   </p>
   <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed"></iframe>
 </section>
 
 <!-- RICEVIMENTO -->
-<section class="ricevimento-bg">
-  <div class="ricevimento-overlay">
-    <h2>Il ricevimento</h2>
-    <div class="divider"></div>
+<section>
+  <h2>Il ricevimento</h2>
+  <div class="divider"></div>
 
-    <p class="location">
-      Notedimare Ricevimenti<br>
-      Via del Lido, 1<br>
-      75012 – Lido di Metaponto (MT)
-    </p>
+  <img src="images/ricevimento.jpg" alt="Ricevimento" class="ricevimento-img">
 
-    <p>
-      Dopo la cerimonia vi accoglieremo in una cornice elegante e luminosa,
-      dove brindare all’amore e all’inizio della nostra vita insieme.
-    </p>
+  <p class="location">
+    Notedimare Ricevimenti<br>
+    Via del Lido, 1 – Lido di Metaponto
+  </p>
 
-    <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
-  </div>
+  <p>
+    Dopo la cerimonia vi accoglieremo in una cornice elegante,
+    tra luci, musica e festa.
+  </p>
+
+  <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
 </section>
 
 <!-- COUNTDOWN -->
 <section style="background:#fff;">
   <h2>Manca poco</h2>
   <div class="divider"></div>
-  <p id="countdown" style="font-size:1.4rem;font-weight:500;"></p>
-</section>
-
-<!-- RSVP -->
-<section>
-  <h2>Conferma la tua presenza</h2>
-  <div class="divider"></div>
-  <p>
-    La vostra presenza renderà questo giorno ancora più speciale.<br>
-    Vi chiediamo gentilmente di confermare la partecipazione.
-  </p>
-
-  <form id="rsvpForm">
-    <label>Nome e Cognome</label>
-    <input type="text" required>
-
-    <label>Email</label>
-    <input type="email" required>
-
-    <label>Parteciperai?</label>
-    <select required>
-      <option value="">Seleziona</option>
-      <option>Sì, ci saremo</option>
-      <option>No, purtroppo no</option>
-    </select>
-
-    <button type="submit">Invia conferma</button>
-  </form>
-
-  <p id="rsvpMessage" style="margin-top:20px;font-weight:500;"></p>
+  <p id="countdown"></p>
 </section>
 
 <!-- IBAN -->
-<section style="background:#fff;">
+<section>
   <h2>Un pensiero per noi</h2>
   <div class="divider"></div>
   <p>
-    La vostra presenza sarà per noi il dono più grande.<br><br>
-    Per chi desiderasse farci un pensiero,
-    è possibile contribuire al nostro futuro insieme tramite bonifico.<br><br>
-    <strong>IBAN:</strong> IT02U0306234210000003060477<br>
-    <strong>Intestatario:</strong> Francesco Chiarelli &amp; Roberta Russo
+    IBAN: <strong>IT02U0306234210000003060477</strong><br>
+    Intestatario: Francesco Chiarelli & Roberta Russo
   </p>
 </section>
 
 <footer>
-  Con amore, Francesco &amp; Roberta
+  Con amore, Francesco & Roberta
 </footer>
 
 <script>
   /* SLIDESHOW */
   const slides = document.querySelectorAll('.hero-slide');
-  let currentSlide = 0;
+  let i = 0;
   setInterval(() => {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
+    slides[i].classList.remove('active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('active');
   }, 5000);
 
-  /* COUNTDOWN COMPLETO */
-  const countdownElement = document.getElementById('countdown');
-  const weddingDate = new Date('May 1, 2026 10:30:00').getTime();
-
+  /* COUNTDOWN */
+  const el = document.getElementById('countdown');
+  const date = new Date('May 1, 2026 10:30:00').getTime();
   setInterval(() => {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    if (distance <= 0) {
-      countdownElement.innerText = "È arrivato il grande giorno! 💍";
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    countdownElement.innerText =
-      `${days} giorni · ${hours} ore · ${minutes} minuti · ${seconds} secondi`;
+    const d = date - new Date().getTime();
+    const days = Math.floor(d / (1000*60*60*24));
+    const h = Math.floor((d / (1000*60*60)) % 24);
+    const m = Math.floor((d / (1000*60)) % 60);
+    const s = Math.floor((d / 1000) % 60);
+    el.innerText = `${days} giorni · ${h} ore · ${m} minuti · ${s} secondi`;
   }, 1000);
-
-  /* RSVP */
-  document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    document.getElementById('rsvpMessage').innerText =
-      "Grazie di cuore! La tua risposta è stata ricevuta 💚";
-    this.reset();
-  });
-
-  /* PASSWORD */
-  const password = "amore2026";
-  const entered = prompt("Inserisci la password per accedere al sito:");
-  if (entered !== password) {
-    document.body.innerHTML =
-      "<h1 style='text-align:center;margin-top:50px;'>Accesso riservato</h1>";
-  }
 </script>
 
 </body>
