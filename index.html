@@ -61,7 +61,31 @@
     }
   </style>
 </head>
+  <script>
+let slides = document.querySelectorAll('.hero-slide');
+let currentSlide = 0;
+
+setInterval(() => {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add('active');
+}, 5000);
+</script>
+
 <body>
+<!-- HERO SLIDESHOW -->
+<section class="hero">
+  <div class="hero-slide active" style="background-image: url('images/hero1.jpg');"></div>
+  <div class="hero-slide" style="background-image: url('images/hero2.jpg');"></div>
+  <div class="hero-slide" style="background-image: url('images/hero3.jpg');"></div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>Francesco &amp; Roberta</h1>
+    <p>1 Maggio 2026</p>
+  </div>
+</section>
 
   <!-- HERO -->
  .hero {
