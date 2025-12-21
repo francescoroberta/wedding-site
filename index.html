@@ -40,7 +40,7 @@
       line-height: 1.8;
     }
 
-    /* ===== HERO SLIDESHOW ===== */
+    /* HERO SLIDESHOW */
     .hero {
       position: relative;
       height: 100vh;
@@ -63,7 +63,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(143,168,155,0.45); /* verde salvia */
+      background: rgba(143,168,155,0.45);
       z-index: 1;
     }
 
@@ -76,7 +76,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: #f6f2ea; /* avorio caldo */
+      color: #f6f2ea;
     }
 
     .hero-content h1 {
@@ -115,6 +115,32 @@
       border: 0;
       border-radius: 12px;
       margin-top: 30px;
+    }
+
+    /* RICEVIMENTO CON SFONDO */
+    .ricevimento-bg {
+      background-image: url('images/ricevimento.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 120px 20px;
+      color: #fff;
+    }
+
+    .ricevimento-overlay {
+      background: rgba(47, 47, 47, 0.55);
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+      border-radius: 12px;
+    }
+
+    .ricevimento-bg h2 {
+      color: #fff;
+    }
+
+    .ricevimento-bg h2::after {
+      color: #c9a24d;
     }
 
     form {
@@ -157,7 +183,7 @@
 
 <body>
 
-<!-- HERO SLIDESHOW -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-slide active" style="background-image: url('images/hero1.jpg');"></div>
   <div class="hero-slide" style="background-image: url('images/hero2.jpg');"></div>
@@ -199,19 +225,24 @@
 </section>
 
 <!-- RICEVIMENTO -->
-<section>
-  <h2>Il ricevimento</h2>
-  <div class="divider"></div>
-  <p class="location">
-    Notedimare Ricevimenti<br>
-    Via del Lido, 1<br>
-    75012 – Lido di Metaponto (MT)
-  </p>
-  <p>
-    Dopo la cerimonia vi accoglieremo in una cornice elegante e luminosa,
-    dove brindare all’amore e all’inizio della nostra vita insieme.
-  </p>
-  <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
+<section class="ricevimento-bg">
+  <div class="ricevimento-overlay">
+    <h2>Il ricevimento</h2>
+    <div class="divider"></div>
+
+    <p class="location">
+      Notedimare Ricevimenti<br>
+      Via del Lido, 1<br>
+      75012 – Lido di Metaponto (MT)
+    </p>
+
+    <p>
+      Dopo la cerimonia vi accoglieremo in una cornice elegante e luminosa,
+      dove brindare all’amore e all’inizio della nostra vita insieme.
+    </p>
+
+    <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
+  </div>
 </section>
 
 <!-- COUNTDOWN -->
@@ -258,7 +289,7 @@
     La vostra presenza sarà per noi il dono più grande.<br><br>
     Per chi desiderasse farci un pensiero,
     è possibile contribuire al nostro futuro insieme tramite bonifico.<br><br>
-    <strong>IBAN:</strong> ____________________________<br>
+    <strong>IBAN:</strong> IT02U0306234210000003060477<br>
     <strong>Intestatario:</strong> Francesco Chiarelli &amp; Roberta Russo
   </p>
 </section>
@@ -271,24 +302,32 @@
   /* SLIDESHOW */
   const slides = document.querySelectorAll('.hero-slide');
   let currentSlide = 0;
-
   setInterval(() => {
     slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].classList.add('active');
   }, 5000);
 
-  /* COUNTDOWN */
+  /* COUNTDOWN COMPLETO */
   const countdownElement = document.getElementById('countdown');
   const weddingDate = new Date('May 1, 2026 10:30:00').getTime();
 
   setInterval(() => {
     const now = new Date().getTime();
     const distance = weddingDate - now;
+
+    if (distance <= 0) {
+      countdownElement.innerText = "È arrivato il grande giorno! 💍";
+      return;
+    }
+
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    countdownElement.innerText = days > 0
-      ? days + " giorni al grande giorno"
-      : "È arrivato il grande giorno!";
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownElement.innerText =
+      `${days} giorni · ${hours} ore · ${minutes} minuti · ${seconds} secondi`;
   }, 1000);
 
   /* RSVP */
@@ -307,10 +346,6 @@
       "<h1 style='text-align:center;margin-top:50px;'>Accesso riservato</h1>";
   }
 </script>
-
-</body>
-</html>
-
 
 </body>
 </html>
