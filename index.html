@@ -63,7 +63,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(143,168,155,0.45);
+      background: rgba(143,168,155,0.45); /* verde salvia */
       z-index: 1;
     }
 
@@ -76,7 +76,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: #f6f2ea;
+      color: #f6f2ea; /* avorio caldo */
     }
 
     .hero-content h1 {
@@ -162,6 +162,9 @@
   <div class="hero-slide active" style="background-image: url('images/hero1.jpg');"></div>
   <div class="hero-slide" style="background-image: url('images/hero2.jpg');"></div>
   <div class="hero-slide" style="background-image: url('images/hero3.jpg');"></div>
+  <div class="hero-slide" style="background-image: url('images/hero4.jpg');"></div>
+  <div class="hero-slide" style="background-image: url('images/hero5.jpg');"></div>
+  <div class="hero-slide" style="background-image: url('images/hero6.jpg');"></div>
 
   <div class="hero-overlay"></div>
 
@@ -266,8 +269,9 @@
 
 <script>
   /* SLIDESHOW */
-  let slides = document.querySelectorAll('.hero-slide');
+  const slides = document.querySelectorAll('.hero-slide');
   let currentSlide = 0;
+
   setInterval(() => {
     slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + 1) % slides.length;
@@ -277,6 +281,7 @@
   /* COUNTDOWN */
   const countdownElement = document.getElementById('countdown');
   const weddingDate = new Date('May 1, 2026 10:30:00').getTime();
+
   setInterval(() => {
     const now = new Date().getTime();
     const distance = weddingDate - now;
@@ -302,6 +307,10 @@
       "<h1 style='text-align:center;margin-top:50px;'>Accesso riservato</h1>";
   }
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
