@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- BLOCCO ACCESSO CON PASSWORD (NON BYPASSABILE) -->
+  <!-- PASSWORD SOFT (STABILE) -->
   <script>
     (function () {
       const PASSWORD = "amore2026";
@@ -183,6 +183,15 @@
       margin-top: 30px;
     }
 
+    /* COUNTDOWN */
+    #countdown {
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #8fa89b;
+      margin-top: 20px;
+    }
+
     /* RSVP */
     form {
       max-width: 420px;
@@ -232,12 +241,12 @@
 
 <body>
 
-<!-- MENU -->
 <nav>
   <ul>
     <li><a href="#storia">La nostra storia</a></li>
     <li><a href="#cerimonia">La cerimonia</a></li>
     <li><a href="#ricevimento">Il ricevimento</a></li>
+    <li><a href="#countdown-section">Countdown</a></li>
     <li><a href="#rsvp">RSVP</a></li>
     <li><a href="#iban">Un pensiero per noi</a></li>
   </ul>
@@ -248,6 +257,9 @@
   <div class="hero-slide active" style="background-image:url('images/hero1.jpg')"></div>
   <div class="hero-slide" style="background-image:url('images/hero2.jpg')"></div>
   <div class="hero-slide" style="background-image:url('images/hero3.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero4.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero5.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero6.jpg')"></div>
 
   <div class="hero-overlay"></div>
 
@@ -260,7 +272,6 @@
 
 <div class="section-separator"></div>
 
-<!-- STORIA -->
 <section id="storia">
   <h2>La nostra storia</h2>
   <p>
@@ -272,43 +283,42 @@
 
 <div class="section-separator"></div>
 
-<!-- CERIMONIA -->
 <section id="cerimonia" style="background:#fff;">
   <h2>La cerimonia</h2>
-  <img src="images/chiesa.jpg" class="section-img" alt="Chiesa Mater Ecclesiae">
+  <img src="images/chiesa.jpg" class="section-img">
   <p>
     La celebrazione del nostro matrimonio si terrà<br>
     <strong>Giovedì 1 Maggio 2026 alle ore 10:30</strong>,<br>
-    presso la <strong>Chiesa Mater Ecclesiae</strong> a Bernalda.<br><br>
-    Un momento intimo e significativo che segnerà l’inizio del nostro cammino insieme.
+    presso la <strong>Chiesa Mater Ecclesiae</strong> a Bernalda.
   </p>
   <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed"></iframe>
 </section>
 
 <div class="section-separator"></div>
 
-<!-- RICEVIMENTO -->
 <section id="ricevimento">
   <h2>Il ricevimento</h2>
-  <img src="images/ricevimento.jpg" class="section-img" alt="Notedimare Ricevimenti">
+  <img src="images/ricevimento.jpg" class="section-img">
   <p>
-    Dopo la cerimonia, vi aspettiamo per festeggiare insieme presso<br>
+    Dopo la cerimonia, vi aspettiamo presso<br>
     <strong>Notedimare Ricevimenti</strong>,<br>
-    in una cornice elegante e luminosa,<br>
-    dove condividere sorrisi, brindisi e momenti indimenticabili.
+    per festeggiare insieme.
   </p>
   <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
 </section>
 
 <div class="section-separator"></div>
 
-<!-- RSVP -->
+<section id="countdown-section" style="background:#fff;">
+  <h2>Manca poco</h2>
+  <div id="countdown"></div>
+</section>
+
+<div class="section-separator"></div>
+
 <section id="rsvp">
   <h2>Conferma la tua presenza</h2>
-  <p>
-    La vostra presenza renderà questo giorno ancora più speciale.<br>
-    Vi chiediamo gentilmente di confermare la partecipazione compilando il modulo sottostante.
-  </p>
+  <p>Compila il modulo per farci sapere se sarai con noi.</p>
 
   <form action="https://formspree.io/f/maqykkbe" method="POST">
     <label>Nome e Cognome</label>
@@ -325,7 +335,7 @@
     </select>
 
     <div id="intolleranzeBox" style="display:none;">
-      <label>Hai particolari intolleranze o esigenze alimentari?</label>
+      <label>Intolleranze o esigenze alimentari</label>
       <textarea name="Intolleranze alimentari" rows="3"></textarea>
     </div>
 
@@ -336,15 +346,11 @@
 
 <div class="section-separator"></div>
 
-<!-- IBAN -->
 <section id="iban" style="background:#fff;">
   <h2>Un pensiero per noi</h2>
   <p>
-    La vostra presenza sarà per noi il dono più grande.<br><br>
-    Per chi desiderasse farci un pensiero,<br>
-    è possibile contribuire al nostro futuro insieme tramite bonifico.<br><br>
     <strong>IBAN:</strong> IT02U0306234210000003060477<br>
-    <strong>Intestatario:</strong> Francesco Chiarelli &amp; Roberta Russo
+    <strong>Intestatario:</strong> Francesco Chiarelli & Roberta Russo
   </p>
 </section>
 
@@ -362,7 +368,29 @@
     slides[i].classList.add('active');
   }, 5000);
 
-  /* RSVP INTOLLERANZE */
+  /* COUNTDOWN */
+  const countdown = document.getElementById("countdown");
+  const weddingDate = new Date("May 1, 2026 10:30:00").getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+      countdown.innerText = "È arrivato il grande giorno! 💍";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    countdown.innerText =
+      `${days} giorni · ${hours} ore · ${minutes} minuti · ${seconds} secondi`;
+  }, 1000);
+
+  /* RSVP */
   document.getElementById("partecipazione").addEventListener("change", function () {
     document.getElementById("intolleranzeBox").style.display =
       this.value === "Sì" ? "block" : "none";
