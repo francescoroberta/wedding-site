@@ -386,6 +386,14 @@
     intolleranzeBox.style.display = 'none';
   });
 </script>
+<script>
+  const password = "amore2026";
+  const entered = prompt("Inserisci la password per accedere al sito:");
+  if (entered !== password) {
+    document.body.innerHTML =
+      "<h1 style='text-align:center;margin-top:50px;'>Accesso riservato</h1>";
+  }
+</script>
 
 </body>
 </html>
