@@ -2,6 +2,21 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <script>
+  const PASSWORD_CORRETTA = "amore2026";
+  const risposta = prompt("Inserisci la password per accedere al sito:");
+
+  if (risposta !== PASSWORD_CORRETTA) {
+    document.write(`
+      <div style="text-align:center; margin-top:80px; font-family:Montserrat,sans-serif;">
+        <h1>Accesso riservato</h1>
+        <p>Questo sito è protetto da password.</p>
+      </div>
+    `);
+    throw new Error("Accesso bloccato");
+  }
+</script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Francesco & Roberta – 1 Maggio 2026</title>
 
