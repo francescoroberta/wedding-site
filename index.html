@@ -56,7 +56,9 @@
       transition: opacity 1.5s ease-in-out;
     }
 
-    .hero-slide.active { opacity: 1; }
+    .hero-slide.active {
+      opacity: 1;
+    }
 
     .hero-overlay {
       position: absolute;
@@ -91,13 +93,8 @@
 
     .hero-content .tagline {
       font-size: 1.1rem;
-      letter-spacing: 1px;
-      margin-top: 10px;
       font-style: italic;
-    }
-
-    @media (max-width: 768px) {
-      .hero-content h1 { font-size: 2.3rem; }
+      margin-top: 10px;
     }
 
     .divider {
@@ -107,7 +104,9 @@
       margin: 30px auto;
     }
 
-    .location { font-weight: 500; }
+    .location {
+      font-weight: 500;
+    }
 
     iframe {
       width: 100%;
@@ -167,6 +166,58 @@
       padding: 40px 20px;
       text-align: center;
     }
+
+    /* =========================
+       OTTIMIZZAZIONE MOBILE
+       ========================= */
+    @media (max-width: 768px) {
+
+      section {
+        padding: 60px 18px;
+      }
+
+      .hero {
+        height: 90vh;
+      }
+
+      .hero-content h1 {
+        font-size: 2.1rem;
+        line-height: 1.2;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+
+      .hero-content .tagline {
+        font-size: 0.95rem;
+        margin-top: 8px;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .cerimonia-img,
+      .ricevimento-img {
+        border-radius: 14px;
+        margin: 30px 0;
+      }
+
+      iframe {
+        height: 240px;
+      }
+
+      form {
+        padding: 0 10px;
+      }
+
+      button {
+        width: 100%;
+        padding: 14px;
+        font-size: 1.05rem;
+      }
+    }
   </style>
 </head>
 
@@ -184,7 +235,7 @@
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <h1>Francesco & Roberta</h1>
+    <h1>Francesco &amp; Roberta</h1>
     <p>1 Maggio 2026</p>
     <p class="tagline">Il nostro “per sempre” inizia qui</p>
   </div>
@@ -266,9 +317,7 @@
     </select>
 
     <div id="intolleranzeBox" style="display:none;">
-      <label>
-        Hai particolari intolleranze o esigenze alimentari?
-      </label>
+      <label>Hai particolari intolleranze o esigenze alimentari?</label>
       <textarea rows="3" placeholder="Se sì, ti chiediamo gentilmente di indicarle qui"></textarea>
     </div>
 
