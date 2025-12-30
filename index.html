@@ -314,28 +314,35 @@
 
   <form id="rsvpForm" action="https://formspree.io/f/maqykkbe" method="POST">
 
-    <label>Nome e Cognome</label>
-    <input type="text" required>
+  <label>Nome e Cognome</label>
+  <input type="text" name="Nome e Cognome" required>
 
-    <label>Email</label>
-    <input type="email" required>
+  <label>Email</label>
+  <input type="email" name="Email invitato" required>
 
-    <label>Parteciperai?</label>
-    <select id="partecipazione" required>
-      <option value="">Seleziona</option>
-      <option value="si">Sì, ci saremo</option>
-      <option value="no">No, purtroppo no</option>
-    </select>
+  <label>Parteciperai?</label>
+  <select name="Parteciperai" id="partecipazione" required>
+    <option value="">Seleziona</option>
+    <option value="Sì">Sì, ci saremo</option>
+    <option value="No">No, purtroppo no</option>
+  </select>
 
-    <div id="intolleranzeBox" style="display:none;">
-      <label>
-        Hai particolari intolleranze o esigenze alimentari?
-      </label>
-      <textarea rows="3" placeholder="Se sì, ti chiediamo gentilmente di indicarle qui sotto"></textarea>
-    </div>
+  <div id="intolleranzeBox" style="display:none;">
+    <label>
+      Hai particolari intolleranze o esigenze alimentari?
+    </label>
+    <textarea
+      name="Intolleranze alimentari"
+      rows="3"
+      placeholder="Se sì, ti chiediamo gentilmente di indicarle qui sotto">
+    </textarea>
+  </div>
 
-    <button type="submit">Invia conferma</button>
-  </form>
+  <!-- Anti-spam invisibile -->
+  <input type="text" name="_gotcha" style="display:none">
+
+  <button type="submit">Invia conferma</button>
+</form>
 
   <p id="rsvpMessage" style="margin-top:20px;font-weight:500;"></p>
 </section>
@@ -391,14 +398,6 @@
   document.getElementById("partecipazione").addEventListener("change", function () {
     document.getElementById("intolleranzeBox").style.display =
       this.value === "si" ? "block" : "none";
-  });
-
-  document.getElementById("rsvpForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    document.getElementById("rsvpMessage").innerText =
-      "Grazie di cuore! La tua risposta è stata ricevuta 💚";
-    this.reset();
-    document.getElementById("intolleranzeBox").style.display = "none";
   });
 </script>
 
