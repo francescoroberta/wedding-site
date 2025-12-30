@@ -205,16 +205,30 @@
   </style>
 </head>
 
-<body>
+<body class="locked">
 
-<!-- PASSWORD -->
+<style>
+  body.locked {
+    display: none;
+  }
+</style>
+
 <script>
-  const password = "amore2026";
-  if (prompt("Inserisci la password per accedere al sito:") !== password) {
-    document.body.innerHTML =
-      "<h1 style='text-align:center;margin-top:60px;'>Accesso riservato</h1>";
+  const PASSWORD_CORRETTA = "amore2026";
+  const risposta = prompt("Inserisci la password per accedere al sito:");
+
+  if (risposta !== PASSWORD_CORRETTA) {
+    document.body.innerHTML = `
+      <div style="text-align:center; margin-top:80px; font-family:Montserrat,sans-serif;">
+        <h1>Accesso riservato</h1>
+        <p>Questo sito è protetto da password.</p>
+      </div>
+    `;
+  } else {
+    document.body.classList.remove("locked");
   }
 </script>
+
 
 <!-- MENU -->
 <nav>
