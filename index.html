@@ -54,7 +54,6 @@
       color: #2f2f2f;
     }
 
-    /* MENU */
     nav {
       position: fixed;
       top: 0;
@@ -183,16 +182,13 @@
       margin-top: 30px;
     }
 
-    /* COUNTDOWN */
     #countdown {
       font-size: 1.4rem;
       font-weight: 500;
-      letter-spacing: 1px;
       color: #8fa89b;
       margin-top: 20px;
     }
 
-    /* RSVP */
     form {
       max-width: 420px;
       margin: 40px auto 0;
@@ -231,11 +227,6 @@
       padding: 40px;
       text-align: center;
     }
-
-    @media (max-width: 768px) {
-      .hero-content h1 { font-size: 2.2rem; }
-      .hero-content p { font-size: 1.1rem; }
-    }
   </style>
 </head>
 
@@ -264,7 +255,7 @@
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <h1>Francesco & Roberta</h1>
+    <h1>Francesco &amp; Roberta</h1>
     <p>1 Maggio 2026</p>
     <p class="tagline">Il nostro “per sempre” inizia qui</p>
   </div>
@@ -276,6 +267,7 @@
   <h2>La nostra storia</h2>
   <p>
     Ci siamo incontrati, ci siamo riconosciuti e, giorno dopo giorno, ci siamo scelti.<br><br>
+    Un legame cresciuto nel tempo, fatto di piccoli gesti, sorrisi condivisi e sogni costruiti insieme.<br><br>
     Il 1 Maggio 2026 celebreremo il nostro amore e l’inizio di una nuova vita insieme.<br><br>
     Saremo felici di condividere questo momento speciale con le persone che amiamo.
   </p>
@@ -289,7 +281,8 @@
   <p>
     La celebrazione del nostro matrimonio si terrà<br>
     <strong>Giovedì 1 Maggio 2026 alle ore 10:30</strong>,<br>
-    presso la <strong>Chiesa Mater Ecclesiae</strong> a Bernalda.
+    presso la <strong>Chiesa Mater Ecclesiae</strong> a Bernalda.<br><br>
+    Un momento intimo e significativo che segnerà l’inizio del nostro cammino insieme.
   </p>
   <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed"></iframe>
 </section>
@@ -300,9 +293,10 @@
   <h2>Il ricevimento</h2>
   <img src="images/ricevimento.jpg" class="section-img">
   <p>
-    Dopo la cerimonia, vi aspettiamo presso<br>
-    <strong>Notedimare Ricevimenti</strong>,<br>
-    per festeggiare insieme.
+    Dopo la cerimonia, vi aspettiamo per festeggiare insieme presso<br>
+    <strong>Notedimare Ricevimenti</strong>,<br><br>
+    una location elegante e luminosa, immersa in un’atmosfera raffinata,<br>
+    dove condividere sorrisi, brindisi e momenti indimenticabili.
   </p>
   <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
 </section>
@@ -318,7 +312,10 @@
 
 <section id="rsvp">
   <h2>Conferma la tua presenza</h2>
-  <p>Compila il modulo per farci sapere se sarai con noi.</p>
+  <p>
+    La vostra presenza renderà questo giorno ancora più speciale.<br>
+    Vi chiediamo gentilmente di confermare la partecipazione compilando il modulo sottostante.
+  </p>
 
   <form action="https://formspree.io/f/maqykkbe" method="POST">
     <label>Nome e Cognome</label>
@@ -335,8 +332,9 @@
     </select>
 
     <div id="intolleranzeBox" style="display:none;">
-      <label>Intolleranze o esigenze alimentari</label>
-      <textarea name="Intolleranze alimentari" rows="3"></textarea>
+      <label>Hai particolari intolleranze o esigenze alimentari?</label>
+      <textarea name="Intolleranze alimentari" rows="3"
+        placeholder="Se sì, ti chiediamo gentilmente di indicarle qui sotto"></textarea>
     </div>
 
     <input type="text" name="_gotcha" style="display:none">
@@ -349,8 +347,11 @@
 <section id="iban" style="background:#fff;">
   <h2>Un pensiero per noi</h2>
   <p>
+    La vostra presenza sarà per noi il dono più grande.<br><br>
+    Per chi desiderasse farci un pensiero,<br>
+    è possibile contribuire al nostro futuro insieme tramite bonifico.<br><br>
     <strong>IBAN:</strong> IT02U0306234210000003060477<br>
-    <strong>Intestatario:</strong> Francesco Chiarelli & Roberta Russo
+    <strong>Intestatario:</strong> Francesco Chiarelli &amp; Roberta Russo
   </p>
 </section>
 
@@ -396,6 +397,10 @@
       this.value === "Sì" ? "block" : "none";
   });
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
