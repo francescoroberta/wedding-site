@@ -125,14 +125,21 @@
 
     label {
       font-weight: 500;
+      display: block;
+      margin-bottom: 4px;
     }
 
-    input, select {
+    input, select, textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 16px;
       border-radius: 6px;
       border: 1px solid #ccc;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    textarea {
+      resize: vertical;
     }
 
     button {
@@ -191,8 +198,7 @@
   <p class="location">
     Giovedì 1 Maggio 2026 – ore 10:30<br>
     Chiesa Mater Ecclesiae<br>
-    Via Concilio Vaticano II<br>
-    Bernalda (MT)
+    Via Concilio Vaticano II – Bernalda (MT)
   </p>
   <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed"></iframe>
 </section>
@@ -234,11 +240,18 @@
     <input type="email" required>
 
     <label>Parteciperai?</label>
-    <select required>
+    <select id="partecipazione" required>
       <option value="">Seleziona</option>
-      <option>Sì, ci saremo</option>
-      <option>No, purtroppo no</option>
+      <option value="si">Sì, ci saremo</option>
+      <option value="no">No, purtroppo no</option>
     </select>
+
+    <div id="intolleranzeBox" style="display:none;">
+      <label>
+        Hai particolari intolleranze o esigenze alimentari?
+      </label>
+      <textarea rows="3" placeholder="Se sì, indicale qui (opzionale)"></textarea>
+    </div>
 
     <button type="submit">Invia conferma</button>
   </form>
@@ -252,12 +265,12 @@
   <div class="divider"></div>
   <p>
     IBAN: <strong>IT02U0306234210000003060477</strong><br>
-    Intestatario: Francesco Chiarelli & Roberta Russo
+    Intestatario: Francesco Chiarelli &amp; Roberta Russo
   </p>
 </section>
 
 <footer>
-  Con amore, Francesco & Roberta
+  Con amore, Francesco &amp; Roberta
 </footer>
 
 <script>
@@ -278,7 +291,7 @@
     slides[i].classList.add('active');
   }, 5000);
 
-  /* COUNTDOWN COMPLETO */
+  /* COUNTDOWN */
   const el = document.getElementById('countdown');
   const date = new Date('May 1, 2026 10:30:00').getTime();
   setInterval(() => {
@@ -294,12 +307,25 @@
     el.innerText = `${days} giorni · ${h} ore · ${m} minuti · ${s} secondi`;
   }, 1000);
 
-  /* RSVP */
+  /* RSVP LOGICA INTOLLERANZE */
+  const partecipazione = document.getElementById('partecipazione');
+  const intolleranzeBox = document.getElementById('intolleranzeBox');
+
+  partecipazione.addEventListener('change', function () {
+    if (this.value === 'si') {
+      intolleranzeBox.style.display = 'block';
+    } else {
+      intolleranzeBox.style.display = 'none';
+    }
+  });
+
+  /* RSVP SUBMIT */
   document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     e.preventDefault();
     document.getElementById('rsvpMessage').innerText =
       "Grazie di cuore! La tua risposta è stata ricevuta 💚";
     this.reset();
+    intolleranzeBox.style.display = 'none';
   });
 </script>
 
