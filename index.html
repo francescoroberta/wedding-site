@@ -40,6 +40,14 @@
       line-height: 1.8;
     }
 
+    /* SEPARATORE ELEGANTE */
+    .section-separator {
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #c9a24d, transparent);
+      margin: 0 auto;
+    }
+
     /* HERO */
     .hero {
       position: relative;
@@ -56,9 +64,7 @@
       transition: opacity 1.5s ease-in-out;
     }
 
-    .hero-slide.active {
-      opacity: 1;
-    }
+    .hero-slide.active { opacity: 1; }
 
     .hero-overlay {
       position: absolute;
@@ -167,50 +173,21 @@
       text-align: center;
     }
 
-    /* =========================
-       OTTIMIZZAZIONE MOBILE
-       ========================= */
+    /* MOBILE */
     @media (max-width: 768px) {
-
-      section {
-        padding: 60px 18px;
-      }
-
-      .hero {
-        height: 90vh;
-      }
+      section { padding: 60px 18px; }
+      .hero { height: 90vh; }
 
       .hero-content h1 {
         font-size: 2.1rem;
         line-height: 1.2;
       }
 
-      .hero-content p {
-        font-size: 1.1rem;
-      }
+      .hero-content p { font-size: 1.1rem; }
+      .hero-content .tagline { font-size: 0.95rem; }
 
-      .hero-content .tagline {
-        font-size: 0.95rem;
-        margin-top: 8px;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      .cerimonia-img,
-      .ricevimento-img {
-        border-radius: 14px;
-        margin: 30px 0;
-      }
-
-      iframe {
-        height: 240px;
-      }
-
-      form {
-        padding: 0 10px;
-      }
+      p { font-size: 1rem; }
+      iframe { height: 240px; }
 
       button {
         width: 100%;
@@ -222,6 +199,16 @@
 </head>
 
 <body>
+
+<script>
+  /* PASSWORD */
+  const password = "amore2026";
+  const entered = prompt("Inserisci la password per accedere al sito:");
+  if (entered !== password) {
+    document.body.innerHTML =
+      "<h1 style='text-align:center;margin-top:60px;'>Accesso riservato</h1>";
+  }
+</script>
 
 <!-- HERO -->
 <section class="hero">
@@ -241,6 +228,8 @@
   </div>
 </section>
 
+<div class="section-separator"></div>
+
 <!-- STORIA -->
 <section>
   <h2>La nostra storia</h2>
@@ -252,39 +241,34 @@
   </p>
 </section>
 
+<div class="section-separator"></div>
+
 <!-- CERIMONIA -->
 <section style="background:#fff;">
   <h2>La cerimonia</h2>
   <div class="divider"></div>
-
-  <img src="images/chiesa.jpg" alt="Chiesa Mater Ecclesiae" class="cerimonia-img">
-
+  <img src="images/chiesa.jpg" class="cerimonia-img">
   <p class="location">
-    La celebrazione del nostro matrimonio si terrà<br>
-    <strong>Giovedì 1 Maggio 2026 alle ore 10:30</strong>,<br>
-    presso la <strong>Chiesa Mater Ecclesiae</strong> a Bernalda.<br><br>
-    Un momento intimo e significativo che segnerà l’inizio del nostro cammino insieme.
+    Giovedì 1 Maggio 2026 – ore 10:30<br>
+    Chiesa Mater Ecclesiae – Bernalda
   </p>
-
   <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed"></iframe>
 </section>
+
+<div class="section-separator"></div>
 
 <!-- RICEVIMENTO -->
 <section>
   <h2>Il ricevimento</h2>
   <div class="divider"></div>
-
-  <img src="images/ricevimento.jpg" alt="Ricevimento Notedimare" class="ricevimento-img">
-
+  <img src="images/ricevimento.jpg" class="ricevimento-img">
   <p class="location">
-    Dopo la cerimonia, vi aspettiamo per festeggiare insieme presso<br>
-    <strong>Notedimare Ricevimenti</strong>,
-    in una cornice elegante e luminosa,
-    dove condividere sorrisi, brindisi e momenti indimenticabili.
+    Notedimare Ricevimenti – Lido di Metaponto
   </p>
-
   <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
 </section>
+
+<div class="section-separator"></div>
 
 <!-- COUNTDOWN -->
 <section style="background:#fff;">
@@ -293,14 +277,13 @@
   <p id="countdown"></p>
 </section>
 
+<div class="section-separator"></div>
+
 <!-- RSVP -->
 <section>
   <h2>Conferma la tua presenza</h2>
   <div class="divider"></div>
-  <p>
-    La vostra presenza renderà questo giorno ancora più speciale.<br>
-    Vi chiediamo gentilmente di confermare la partecipazione compilando il modulo sottostante.
-  </p>
+  <p>Vi chiediamo gentilmente di confermare la partecipazione.</p>
 
   <form id="rsvpForm">
     <label>Nome e Cognome</label>
@@ -312,31 +295,30 @@
     <label>Parteciperai?</label>
     <select id="partecipazione" required>
       <option value="">Seleziona</option>
-      <option value="si">Sì, ci saremo</option>
-      <option value="no">No, purtroppo no</option>
+      <option value="si">Sì</option>
+      <option value="no">No</option>
     </select>
 
     <div id="intolleranzeBox" style="display:none;">
-      <label>Hai particolari intolleranze o esigenze alimentari?</label>
-      <textarea rows="3" placeholder="Se sì, ti chiediamo gentilmente di indicarle qui"></textarea>
+      <label>Intolleranze alimentari</label>
+      <textarea rows="3"></textarea>
     </div>
 
     <button type="submit">Invia conferma</button>
   </form>
 
-  <p id="rsvpMessage" style="margin-top:20px;font-weight:500;"></p>
+  <p id="rsvpMessage"></p>
 </section>
+
+<div class="section-separator"></div>
 
 <!-- IBAN -->
 <section style="background:#fff;">
   <h2>Un pensiero per noi</h2>
   <div class="divider"></div>
   <p>
-    La vostra presenza sarà per noi il dono più grande.<br><br>
-    Per chi desiderasse farci un pensiero,
-    è possibile contribuire al nostro futuro insieme tramite bonifico.<br><br>
-    <strong>IBAN:</strong> IT02U0306234210000003060477<br>
-    <strong>Intestatario:</strong> Francesco Chiarelli &amp; Roberta Russo
+    IBAN: <strong>IT02U0306234210000003060477</strong><br>
+    Francesco Chiarelli &amp; Roberta Russo
   </p>
 </section>
 
@@ -359,10 +341,6 @@
   const date = new Date('May 1, 2026 10:30:00').getTime();
   setInterval(() => {
     const d = date - new Date().getTime();
-    if (d <= 0) {
-      el.innerText = "È arrivato il grande giorno! 💍";
-      return;
-    }
     const days = Math.floor(d / (1000*60*60*24));
     const h = Math.floor((d / (1000*60*60)) % 24);
     const m = Math.floor((d / (1000*60)) % 60);
@@ -370,29 +348,19 @@
     el.innerText = `${days} giorni · ${h} ore · ${m} minuti · ${s} secondi`;
   }, 1000);
 
-  /* RSVP INTOLLERANZE */
-  const partecipazione = document.getElementById('partecipazione');
-  const intolleranzeBox = document.getElementById('intolleranzeBox');
-
-  partecipazione.addEventListener('change', function () {
-    intolleranzeBox.style.display = this.value === 'si' ? 'block' : 'none';
+  /* RSVP */
+  document.getElementById('partecipazione').addEventListener('change', function () {
+    document.getElementById('intolleranzeBox').style.display =
+      this.value === 'si' ? 'block' : 'none';
   });
 
   document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     e.preventDefault();
     document.getElementById('rsvpMessage').innerText =
-      "Grazie di cuore! La tua risposta è stata ricevuta 💚";
+      "Grazie di cuore! 💚";
     this.reset();
-    intolleranzeBox.style.display = 'none';
+    document.getElementById('intolleranzeBox').style.display = 'none';
   });
-</script>
-<script>
-  const password = "amore2026";
-  const entered = prompt("Inserisci la password per accedere al sito:");
-  if (entered !== password) {
-    document.body.innerHTML =
-      "<h1 style='text-align:center;margin-top:50px;'>Accesso riservato</h1>";
-  }
 </script>
 
 </body>
