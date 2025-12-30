@@ -42,10 +42,10 @@
 
     /* SEPARATORE ELEGANTE */
     .section-separator {
-      width: 120px;
+      width: 140px;
       height: 1px;
       background: linear-gradient(to right, transparent, #c9a24d, transparent);
-      margin: 0 auto;
+      margin: 40px auto;
     }
 
     /* HERO */
@@ -110,9 +110,7 @@
       margin: 30px auto;
     }
 
-    .location {
-      font-weight: 500;
-    }
+    .location { font-weight: 500; }
 
     iframe {
       width: 100%;
@@ -152,9 +150,7 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    textarea {
-      resize: vertical;
-    }
+    textarea { resize: vertical; }
 
     button {
       background: #8fa89b;
@@ -200,8 +196,8 @@
 
 <body>
 
+<!-- PASSWORD -->
 <script>
-  /* PASSWORD */
   const password = "amore2026";
   const entered = prompt("Inserisci la password per accedere al sito:");
   if (entered !== password) {
@@ -247,11 +243,16 @@
 <section style="background:#fff;">
   <h2>La cerimonia</h2>
   <div class="divider"></div>
-  <img src="images/chiesa.jpg" class="cerimonia-img">
+
+  <img src="images/chiesa.jpg" alt="Chiesa Mater Ecclesiae" class="cerimonia-img">
+
   <p class="location">
-    Giovedì 1 Maggio 2026 – ore 10:30<br>
-    Chiesa Mater Ecclesiae – Bernalda
+    La celebrazione del nostro matrimonio si terrà<br>
+    <strong>Giovedì 1 Maggio 2026 alle ore 10:30</strong>,<br>
+    presso la <strong>Chiesa Mater Ecclesiae</strong> a Bernalda.<br><br>
+    Un momento intimo e significativo che segnerà l’inizio del nostro cammino insieme.
   </p>
+
   <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed"></iframe>
 </section>
 
@@ -261,10 +262,16 @@
 <section>
   <h2>Il ricevimento</h2>
   <div class="divider"></div>
-  <img src="images/ricevimento.jpg" class="ricevimento-img">
+
+  <img src="images/ricevimento.jpg" alt="Ricevimento Notedimare" class="ricevimento-img">
+
   <p class="location">
-    Notedimare Ricevimenti – Lido di Metaponto
+    Dopo la cerimonia, vi aspettiamo per festeggiare insieme presso<br>
+    <strong>Notedimare Ricevimenti</strong>,<br>
+    in una cornice elegante e luminosa,
+    dove condividere sorrisi, brindisi e momenti indimenticabili.
   </p>
+
   <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
 </section>
 
@@ -283,7 +290,10 @@
 <section>
   <h2>Conferma la tua presenza</h2>
   <div class="divider"></div>
-  <p>Vi chiediamo gentilmente di confermare la partecipazione.</p>
+  <p>
+    La vostra presenza renderà questo giorno ancora più speciale.<br>
+    Vi chiediamo gentilmente di confermare la partecipazione compilando il modulo sottostante.
+  </p>
 
   <form id="rsvpForm">
     <label>Nome e Cognome</label>
@@ -295,19 +305,19 @@
     <label>Parteciperai?</label>
     <select id="partecipazione" required>
       <option value="">Seleziona</option>
-      <option value="si">Sì</option>
-      <option value="no">No</option>
+      <option value="si">Sì, ci saremo</option>
+      <option value="no">No, purtroppo no</option>
     </select>
 
     <div id="intolleranzeBox" style="display:none;">
-      <label>Intolleranze alimentari</label>
-      <textarea rows="3"></textarea>
+      <label>Hai particolari intolleranze o esigenze alimentari?</label>
+      <textarea rows="3" placeholder="Se sì, ti chiediamo gentilmente di indicarle qui"></textarea>
     </div>
 
     <button type="submit">Invia conferma</button>
   </form>
 
-  <p id="rsvpMessage"></p>
+  <p id="rsvpMessage" style="margin-top:20px;font-weight:500;"></p>
 </section>
 
 <div class="section-separator"></div>
@@ -317,8 +327,11 @@
   <h2>Un pensiero per noi</h2>
   <div class="divider"></div>
   <p>
-    IBAN: <strong>IT02U0306234210000003060477</strong><br>
-    Francesco Chiarelli &amp; Roberta Russo
+    La vostra presenza sarà per noi il dono più grande.<br><br>
+    Per chi desiderasse farci un pensiero,
+    è possibile contribuire al nostro futuro insieme tramite bonifico.<br><br>
+    <strong>IBAN:</strong> IT02U0306234210000003060477<br>
+    <strong>Intestatario:</strong> Francesco Chiarelli &amp; Roberta Russo
   </p>
 </section>
 
@@ -341,6 +354,10 @@
   const date = new Date('May 1, 2026 10:30:00').getTime();
   setInterval(() => {
     const d = date - new Date().getTime();
+    if (d <= 0) {
+      el.innerText = "È arrivato il grande giorno! 💍";
+      return;
+    }
     const days = Math.floor(d / (1000*60*60*24));
     const h = Math.floor((d / (1000*60*60)) % 24);
     const m = Math.floor((d / (1000*60)) % 60);
@@ -349,17 +366,19 @@
   }, 1000);
 
   /* RSVP */
-  document.getElementById('partecipazione').addEventListener('change', function () {
-    document.getElementById('intolleranzeBox').style.display =
-      this.value === 'si' ? 'block' : 'none';
+  const partecipazione = document.getElementById('partecipazione');
+  const intolleranzeBox = document.getElementById('intolleranzeBox');
+
+  partecipazione.addEventListener('change', function () {
+    intolleranzeBox.style.display = this.value === 'si' ? 'block' : 'none';
   });
 
   document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     e.preventDefault();
     document.getElementById('rsvpMessage').innerText =
-      "Grazie di cuore! 💚";
+      "Grazie di cuore! La tua risposta è stata ricevuta 💚";
     this.reset();
-    document.getElementById('intolleranzeBox').style.display = 'none';
+    intolleranzeBox.style.display = 'none';
   });
 </script>
 
