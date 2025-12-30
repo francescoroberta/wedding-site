@@ -31,22 +31,26 @@
       list-style: none;
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 26px;
       padding: 14px 0;
       margin: 0;
+      flex-wrap: wrap;
     }
 
     nav a {
       text-decoration: none;
       color: #f6f2ea;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       letter-spacing: 1px;
+      font-weight: 500;
     }
 
-    nav a:hover { color: #c9a24d; }
+    nav a:hover {
+      color: #c9a24d;
+    }
 
     section {
-      padding: 100px 20px 80px;
+      padding: 110px 20px 80px;
       max-width: 900px;
       margin: auto;
       text-align: center;
@@ -64,8 +68,12 @@
       margin-top: 10px;
     }
 
-    p { line-height: 1.8; font-size: 1.05rem; }
+    p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
 
+    /* SEPARATORI */
     .section-separator {
       width: 140px;
       height: 1px;
@@ -78,7 +86,7 @@
       position: relative;
       height: 100vh;
       overflow: hidden;
-      padding-top: 60px;
+      padding-top: 70px;
     }
 
     .hero-slide {
@@ -96,6 +104,7 @@
       position: absolute;
       inset: 0;
       background: rgba(143,168,155,0.45);
+      z-index: 1;
     }
 
     .hero-content {
@@ -107,11 +116,33 @@
       justify-content: center;
       align-items: center;
       color: #f6f2ea;
+      text-align: center;
     }
 
-    .hero-content h1 { font-size: 3.5rem; }
-    .hero-content p { font-size: 1.3rem; letter-spacing: 2px; }
-    .tagline { font-style: italic; margin-top: 10px; }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      margin: 6px 0;
+    }
+
+    .hero-content .tagline {
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    img.section-img {
+      width: 100%;
+      border-radius: 16px;
+      margin: 40px 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
 
     iframe {
       width: 100%;
@@ -121,28 +152,29 @@
       margin-top: 30px;
     }
 
-    img.section-img {
-      width: 100%;
-      border-radius: 16px;
-      margin: 40px 0;
-      box-shadow: 0 10px 25px rgba(0,0,0,.2);
-    }
-
     /* RSVP */
     form {
       max-width: 420px;
-      margin: auto;
+      margin: 40px auto 0;
       text-align: left;
     }
 
-    label { font-weight: 500; }
+    label {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 4px;
+    }
+
     input, select, textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 16px;
       border-radius: 6px;
       border: 1px solid #ccc;
+      font-family: 'Montserrat', sans-serif;
     }
+
+    textarea { resize: vertical; }
 
     button {
       width: 100%;
@@ -152,6 +184,7 @@
       border: none;
       border-radius: 30px;
       cursor: pointer;
+      font-size: 1rem;
     }
 
     footer {
@@ -161,8 +194,12 @@
       text-align: center;
     }
 
-    @media(max-width:768px){
+    /* MOBILE */
+    @media (max-width: 768px) {
+      section { padding: 100px 18px 60px; }
       .hero-content h1 { font-size: 2.1rem; }
+      .hero-content p { font-size: 1.1rem; }
+      .hero-content .tagline { font-size: 0.95rem; }
       iframe { height: 240px; }
     }
   </style>
@@ -170,22 +207,27 @@
 
 <body>
 
+<!-- PASSWORD -->
 <script>
   const password = "amore2026";
   if (prompt("Inserisci la password per accedere al sito:") !== password) {
-    document.body.innerHTML = "<h1 style='text-align:center;margin-top:60px'>Accesso riservato</h1>";
+    document.body.innerHTML =
+      "<h1 style='text-align:center;margin-top:60px;'>Accesso riservato</h1>";
   }
 </script>
 
+<!-- MENU -->
 <nav>
   <ul>
     <li><a href="#storia">La nostra storia</a></li>
     <li><a href="#cerimonia">Cerimonia</a></li>
     <li><a href="#ricevimento">Ricevimento</a></li>
     <li><a href="#rsvp">RSVP</a></li>
+    <li><a href="#iban">Un pensiero per noi</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-slide active" style="background-image:url('images/hero1.jpg')"></div>
   <div class="hero-slide" style="background-image:url('images/hero2.jpg')"></div>
@@ -193,9 +235,11 @@
   <div class="hero-slide" style="background-image:url('images/hero4.jpg')"></div>
   <div class="hero-slide" style="background-image:url('images/hero5.jpg')"></div>
   <div class="hero-slide" style="background-image:url('images/hero6.jpg')"></div>
+
   <div class="hero-overlay"></div>
+
   <div class="hero-content">
-    <h1>Francesco & Roberta</h1>
+    <h1>Francesco &amp; Roberta</h1>
     <p>1 Maggio 2026</p>
     <p class="tagline">Il nostro “per sempre” inizia qui</p>
   </div>
@@ -203,36 +247,55 @@
 
 <div class="section-separator"></div>
 
+<!-- STORIA -->
 <section id="storia">
   <h2>La nostra storia</h2>
-  <p>Ci siamo incontrati, ci siamo riconosciuti e, giorno dopo giorno, ci siamo scelti.<br><br>
-     Il 1 Maggio 2026 celebreremo il nostro amore e l’inizio di una nuova vita insieme.<br><br>
-     Saremo felici di condividere questo momento speciale con le persone che amiamo.</p>
+  <p>
+    Ci siamo incontrati, ci siamo riconosciuti e, giorno dopo giorno, ci siamo scelti.<br><br>
+    Il 1 Maggio 2026 celebreremo il nostro amore e l’inizio di una nuova vita insieme.<br><br>
+    Saremo felici di condividere questo momento speciale con le persone che amiamo.
+  </p>
 </section>
 
 <div class="section-separator"></div>
 
+<!-- CERIMONIA -->
 <section id="cerimonia" style="background:#fff;">
   <h2>La cerimonia</h2>
-  <img src="images/chiesa.jpg" class="section-img">
-  <p><strong>Giovedì 1 Maggio 2026 – ore 10:30</strong><br>
-     Chiesa Mater Ecclesiae – Bernalda</p>
+
+  <img src="images/chiesa.jpg" alt="Chiesa Mater Ecclesiae" class="section-img">
+
+  <p>
+    La celebrazione del nostro matrimonio si terrà<br>
+    <strong>Giovedì 1 Maggio 2026 alle ore 10:30</strong>,<br>
+    presso la <strong>Chiesa Mater Ecclesiae</strong> a Bernalda.<br><br>
+    Un momento intimo e significativo che segnerà l’inizio del nostro cammino insieme.
+  </p>
+
   <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed"></iframe>
 </section>
 
 <div class="section-separator"></div>
 
+<!-- RICEVIMENTO -->
 <section id="ricevimento">
   <h2>Il ricevimento</h2>
-  <img src="images/ricevimento.jpg" class="section-img">
-  <p>Dopo la cerimonia, vi aspettiamo per festeggiare insieme presso<br>
-     <strong>Notedimare Ricevimenti</strong>,<br>
-     in una cornice elegante e luminosa.</p>
+
+  <img src="images/ricevimento.jpg" alt="Notedimare Ricevimenti" class="section-img">
+
+  <p>
+    Dopo la cerimonia, vi aspettiamo per festeggiare insieme presso<br>
+    <strong>Notedimare Ricevimenti</strong>,<br>
+    in una cornice elegante e luminosa,<br>
+    dove condividere sorrisi, brindisi e momenti indimenticabili.
+  </p>
+
   <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
 </section>
 
 <div class="section-separator"></div>
 
+<!-- COUNTDOWN -->
 <section style="background:#fff;">
   <h2>Manca poco</h2>
   <p id="countdown"></p>
@@ -240,14 +303,18 @@
 
 <div class="section-separator"></div>
 
+<!-- RSVP -->
 <section id="rsvp">
   <h2>Conferma la tua presenza</h2>
-  <p>La vostra presenza renderà questo giorno ancora più speciale.<br>
-     Vi chiediamo gentilmente di confermare la partecipazione compilando il modulo sottostante.</p>
+
+  <p>
+    La vostra presenza renderà questo giorno ancora più speciale.<br>
+    Vi chiediamo gentilmente di confermare la partecipazione compilando il modulo sottostante.
+  </p>
 
   <form id="rsvpForm">
     <label>Nome e Cognome</label>
-    <input required>
+    <input type="text" required>
 
     <label>Email</label>
     <input type="email" required>
@@ -255,37 +322,44 @@
     <label>Parteciperai?</label>
     <select id="partecipazione" required>
       <option value="">Seleziona</option>
-      <option value="si">Sì</option>
-      <option value="no">No</option>
+      <option value="si">Sì, ci saremo</option>
+      <option value="no">No, purtroppo no</option>
     </select>
 
     <div id="intolleranzeBox" style="display:none;">
-      <label>Intolleranze alimentari</label>
-      <textarea rows="3"></textarea>
+      <label>
+        Hai particolari intolleranze o esigenze alimentari?
+      </label>
+      <textarea rows="3" placeholder="Se sì, ti chiediamo gentilmente di indicarle qui sotto"></textarea>
     </div>
 
-    <button>Invia conferma</button>
+    <button type="submit">Invia conferma</button>
   </form>
 
-  <p id="rsvpMessage"></p>
+  <p id="rsvpMessage" style="margin-top:20px;font-weight:500;"></p>
 </section>
 
 <div class="section-separator"></div>
 
-<section style="background:#fff;">
+<!-- IBAN -->
+<section id="iban" style="background:#fff;">
   <h2>Un pensiero per noi</h2>
+
   <p>
     La vostra presenza sarà per noi il dono più grande.<br><br>
-    IBAN: <strong>IT02U0306234210000003060477</strong><br>
-    Francesco Chiarelli & Roberta Russo
+    Per chi desiderasse farci un pensiero,<br>
+    è possibile contribuire al nostro futuro insieme tramite bonifico.<br><br>
+    <strong>IBAN:</strong> IT02U0306234210000003060477<br>
+    <strong>Intestatario:</strong> Francesco Chiarelli &amp; Roberta Russo
   </p>
 </section>
 
 <footer>
-  Con amore, Francesco & Roberta
+  Con amore, Francesco &amp; Roberta
 </footer>
 
 <script>
+  /* SLIDESHOW */
   const slides = document.querySelectorAll('.hero-slide');
   let i = 0;
   setInterval(() => {
@@ -294,28 +368,35 @@
     slides[i].classList.add('active');
   }, 5000);
 
+  /* COUNTDOWN */
   const countdown = document.getElementById("countdown");
-  const date = new Date("May 1, 2026 10:30:00").getTime();
+  const weddingDate = new Date("May 1, 2026 10:30:00").getTime();
   setInterval(() => {
-    const d = date - new Date().getTime();
-    if (d <= 0) return countdown.innerText = "È arrivato il grande giorno! 💍";
-    const days = Math.floor(d / 86400000);
-    const h = Math.floor(d / 3600000) % 24;
-    const m = Math.floor(d / 60000) % 60;
-    const s = Math.floor(d / 1000) % 60;
-    countdown.innerText = `${days} giorni · ${h} ore · ${m} minuti · ${s} secondi`;
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+    if (distance <= 0) {
+      countdown.innerText = "È arrivato il grande giorno! 💍";
+      return;
+    }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+    countdown.innerText =
+      `${days} giorni · ${hours} ore · ${minutes} minuti · ${seconds} secondi`;
   }, 1000);
 
-  document.getElementById("partecipazione").addEventListener("change", e => {
+  /* RSVP */
+  document.getElementById("partecipazione").addEventListener("change", function () {
     document.getElementById("intolleranzeBox").style.display =
-      e.target.value === "si" ? "block" : "none";
+      this.value === "si" ? "block" : "none";
   });
 
-  document.getElementById("rsvpForm").addEventListener("submit", e => {
+  document.getElementById("rsvpForm").addEventListener("submit", function (e) {
     e.preventDefault();
     document.getElementById("rsvpMessage").innerText =
       "Grazie di cuore! La tua risposta è stata ricevuta 💚";
-    e.target.reset();
+    this.reset();
     document.getElementById("intolleranzeBox").style.display = "none";
   });
 </script>
