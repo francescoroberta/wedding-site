@@ -2,20 +2,36 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <script>
-  const PASSWORD_CORRETTA = "amore2026";
-  const risposta = prompt("Inserisci la password per accedere al sito:");
 
-  if (risposta !== PASSWORD_CORRETTA) {
-    document.write(`
-      <div style="text-align:center; margin-top:80px; font-family:Montserrat,sans-serif;">
-        <h1>Accesso riservato</h1>
-        <p>Questo sito è protetto da password.</p>
-      </div>
-    `);
-    throw new Error("Accesso bloccato");
-  }
-</script>
+  <!-- PASSWORD (protezione soft stabile) -->
+  <script>
+    (function () {
+      const PASSWORD = "amore2026";
+      const risposta = prompt("Inserisci la password per accedere al sito:");
+
+      if (risposta !== PASSWORD) {
+        document.documentElement.innerHTML = `
+          <head>
+            <meta charset="UTF-8">
+            <title>Accesso riservato</title>
+            <style>
+              body {
+                font-family: Montserrat, sans-serif;
+                text-align: center;
+                margin-top: 80px;
+                background: #f5f7f4;
+                color: #2f2f2f;
+              }
+            </style>
+          </head>
+          <body>
+            <h1>Accesso riservato</h1>
+            <p>Questo sito è protetto da password.</p>
+          </body>
+        `;
+      }
+    })();
+  </script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Francesco & Roberta – 1 Maggio 2026</title>
@@ -60,9 +76,7 @@
       font-weight: 500;
     }
 
-    nav a:hover {
-      color: #c9a24d;
-    }
+    nav a:hover { color: #c9a24d; }
 
     section {
       padding: 110px 20px 80px;
@@ -268,16 +282,11 @@
 <!-- CERIMONIA -->
 <section id="cerimonia" style="background:#fff;">
   <h2>La cerimonia</h2>
-
-  <img src="images/chiesa.jpg" alt="Chiesa Mater Ecclesiae" class="section-img">
-
+  <img src="images/chiesa.jpg" class="section-img" alt="Chiesa Mater Ecclesiae">
   <p>
-    La celebrazione del nostro matrimonio si terrà<br>
-    <strong>Giovedì 1 Maggio 2026 alle ore 10:30</strong>,<br>
-    presso la <strong>Chiesa Mater Ecclesiae</strong> a Bernalda.<br><br>
-    Un momento intimo e significativo che segnerà l’inizio del nostro cammino insieme.
+    Giovedì 1 Maggio 2026 alle ore 10:30<br>
+    presso la <strong>Chiesa Mater Ecclesiae</strong> di Bernalda.
   </p>
-
   <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed"></iframe>
 </section>
 
@@ -286,16 +295,11 @@
 <!-- RICEVIMENTO -->
 <section id="ricevimento">
   <h2>Il ricevimento</h2>
-
-  <img src="images/ricevimento.jpg" alt="Notedimare Ricevimenti" class="section-img">
-
+  <img src="images/ricevimento.jpg" class="section-img" alt="Notedimare Ricevimenti">
   <p>
-    Dopo la cerimonia, vi aspettiamo per festeggiare insieme presso<br>
-    <strong>Notedimare Ricevimenti</strong>,<br>
-    in una cornice elegante e luminosa,<br>
-    dove condividere sorrisi, brindisi e momenti indimenticabili.
+    Dopo la cerimonia vi aspettiamo presso<br>
+    <strong>Notedimare Ricevimenti</strong>.
   </p>
-
   <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
 </section>
 
@@ -313,44 +317,28 @@
 <section id="rsvp">
   <h2>Conferma la tua presenza</h2>
 
-  <p>
-    La vostra presenza renderà questo giorno ancora più speciale.<br>
-    Vi chiediamo gentilmente di confermare la partecipazione compilando il modulo sottostante.
-  </p>
+  <form action="https://formspree.io/f/maqykkbe" method="POST">
+    <label>Nome e Cognome</label>
+    <input type="text" name="Nome e Cognome" required>
 
-  <form id="rsvpForm" action="https://formspree.io/f/maqykkbe" method="POST">
+    <label>Email</label>
+    <input type="email" name="Email" required>
 
-  <label>Nome e Cognome</label>
-  <input type="text" name="Nome e Cognome" required>
+    <label>Parteciperai?</label>
+    <select id="partecipazione" name="Parteciperai" required>
+      <option value="">Seleziona</option>
+      <option value="Sì">Sì</option>
+      <option value="No">No</option>
+    </select>
 
-  <label>Email</label>
-  <input type="email" name="Email invitato" required>
+    <div id="intolleranzeBox" style="display:none;">
+      <label>Intolleranze alimentari</label>
+      <textarea name="Intolleranze"></textarea>
+    </div>
 
-  <label>Parteciperai?</label>
-  <select name="Parteciperai" id="partecipazione" required>
-    <option value="">Seleziona</option>
-    <option value="Sì">Sì, ci saremo</option>
-    <option value="No">No, purtroppo no</option>
-  </select>
-
-  <div id="intolleranzeBox" style="display:none;">
-    <label>
-      Hai particolari intolleranze o esigenze alimentari?
-    </label>
-    <textarea
-      name="Intolleranze alimentari"
-      rows="3"
-      placeholder="Se sì, ti chiediamo gentilmente di indicarle qui sotto">
-    </textarea>
-  </div>
-
-  <!-- Anti-spam invisibile -->
-  <input type="text" name="_gotcha" style="display:none">
-
-  <button type="submit">Invia conferma</button>
-</form>
-
-  <p id="rsvpMessage" style="margin-top:20px;font-weight:500;"></p>
+    <input type="text" name="_gotcha" style="display:none">
+    <button type="submit">Invia conferma</button>
+  </form>
 </section>
 
 <div class="section-separator"></div>
@@ -358,13 +346,9 @@
 <!-- IBAN -->
 <section id="iban" style="background:#fff;">
   <h2>Un pensiero per noi</h2>
-
   <p>
-    La vostra presenza sarà per noi il dono più grande.<br><br>
-    Per chi desiderasse farci un pensiero,<br>
-    è possibile contribuire al nostro futuro insieme tramite bonifico.<br><br>
-    <strong>IBAN:</strong> IT02U0306234210000003060477<br>
-    <strong>Intestatario:</strong> Francesco Chiarelli &amp; Roberta Russo
+    IBAN: <strong>IT02U0306234210000003060477</strong><br>
+    Francesco Chiarelli &amp; Roberta Russo
   </p>
 </section>
 
@@ -383,21 +367,13 @@
   }, 5000);
 
   /* COUNTDOWN */
-  const countdown = document.getElementById("countdown");
   const weddingDate = new Date("May 1, 2026 10:30:00").getTime();
   setInterval(() => {
     const now = new Date().getTime();
-    const distance = weddingDate - now;
-    if (distance <= 0) {
-      countdown.innerText = "È arrivato il grande giorno! 💍";
-      return;
-    }
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((distance / (1000 * 60)) % 60);
-    const seconds = Math.floor((distance / 1000) % 60);
-    countdown.innerText =
-      `${days} giorni · ${hours} ore · ${minutes} minuti · ${seconds} secondi`;
+    const d = weddingDate - now;
+    if (d <= 0) return;
+    document.getElementById("countdown").innerText =
+      Math.floor(d / (1000*60*60*24)) + " giorni";
   }, 1000);
 
   /* RSVP */
@@ -406,6 +382,10 @@
       this.value === "Sì" ? "block" : "none";
   });
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
