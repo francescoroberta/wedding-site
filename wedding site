@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Francesco & Roberta – 1 Maggio 2026</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -12,17 +14,20 @@
       color: #2f2f2f;
       background-color: #f5f7f4;
     }
+
     section {
       padding: 80px 20px;
       max-width: 900px;
       margin: auto;
       text-align: center;
     }
+
     h1, h2 {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
       color: #2f2f2f;
     }
+
     h2::after {
       content: "✦";
       display: block;
@@ -30,18 +35,22 @@
       font-size: 1.2rem;
       margin-top: 10px;
     }
+
     h1 {
       font-size: 3rem;
       margin-bottom: 10px;
     }
+
     h2 {
       font-size: 2.2rem;
       margin-bottom: 30px;
     }
+
     p {
       font-size: 1.05rem;
       line-height: 1.8;
     }
+
     .hero {
       background: linear-gradient(rgba(143,168,155,0.35), rgba(143,168,155,0.35)), url('hero.jpg') center/cover no-repeat;
       color: #fff;
@@ -52,22 +61,27 @@
       align-items: center;
       padding: 0 20px;
     }
+
     .hero h1 {
       font-size: 3.5rem;
     }
+
     .hero span {
       letter-spacing: 2px;
       font-size: 1.1rem;
     }
+
     .divider {
       width: 60px;
       height: 2px;
       background: #8fa89b;
       margin: 30px auto;
     }
+
     .location {
       font-weight: 500;
     }
+
     footer {
       background-color: #8fa89b;
       color: #fff;
@@ -75,176 +89,44 @@
       text-align: center;
       font-size: 0.9rem;
     }
-  </style>
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
 
-.time-box {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 16px 18px;
-  min-width: 90px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-.time-box .num {
-  display: block;
-  font-size: 2rem;
-  font-weight: 600;
-  color: #2f2f2f;
-}
-
-.time-box .label {
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  color: #8fa89b;
-  text-transform: uppercase;
-}
-
-</head>
-<body>
-
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Francesco & Roberta</h1>
-    <span>1 Maggio 2026</span>
-  </section>
-
-  <!-- STORIA -->
-  <section>
-    <h2>La nostra storia</h2>
-    <div class="divider"></div>
-    <p>
-      Ci siamo incontrati, ci siamo riconosciuti e ci siamo scelti.
-      <br /><br />
-      Tra sorrisi, sogni e promesse, il 1 Maggio 2026 inizierà il capitolo più bello
-      della nostra storia.
-      <br /><br />
-      Con voi accanto, sarà ancora più speciale.
-    </p>
-  </section>
-
-  <!-- CERIMONIA -->
-  <section style="background-color:#fff;">
-    <h2>La cerimonia</h2>
-    <div class="divider"></div>
-    <p class="location">
-      Giovedì 1 Maggio 2026 – ore 10:30<br />
-      Chiesa Mater Ecclesiae<br />
-      Via Concilio Vaticano II<br />
-      Bernalda (MT)
-    </p>
-    <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed" width="100%" height="300" style="border:0; border-radius:12px; margin-top:30px;" loading="lazy"></iframe>
-  </section>
-
-  <!-- RICEVIMENTO -->
-  <section>
-    <h2>Il ricevimento</h2>
-    <div class="divider"></div>
-    <p class="location">
-      Notedimare Ricevimenti<br />
-      Via del Lido, 1<br />
-      75012 – Lido di Metaponto (MT)
-    </p>
-    <p>
-      Dopo la cerimonia vi accoglieremo in una cornice elegante e luminosa,
-      dove brindare all’amore e all’inizio della nostra vita insieme.
-    </p>
-    <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed" width="100%" height="300" style="border:0; border-radius:12px; margin-top:30px;" loading="lazy"></iframe>
-  </section>
-
-  <!-- COUNTDOWN -->
-  <section>
-    <h2>Manca poco</h2>
-    <div class="divider"></div>
-    <div id="countdown" class="countdown">
-  <div class="time-box">
-    <span id="cd-days" class="num">0</span>
-    <span class="label">giorni</span>
-  </div>
-  <div class="time-box">
-    <span id="cd-hours" class="num">0</span>
-    <span class="label">ore</span>
-  </div>
-  <div class="time-box">
-    <span id="cd-minutes" class="num">0</span>
-    <span class="label">minuti</span>
-  </div>
-  <div class="time-box">
-    <span id="cd-seconds" class="num">0</span>
-    <span class="label">secondi</span>
-  </div>
-</div>
-
-  </section>
-
-  <!-- RSVP -->
-  <section style="background-color:#fff;">
-    <h2>Conferma presenza</h2>
-    <div class="divider"></div>
-    <p>
-      Il vostro affetto è il regalo più prezioso.
-      <br />
-      Vi chiediamo gentilmente di confermare la vostra presenza.
-    </p>
-  </section>
-
-  <!-- IBAN -->
-  <section>
-    <h2>Un pensiero per noi</h2>
-    <div class="divider"></div>
-    <p>
-      La vostra presenza sarà per noi il dono più grande.
-      <br /><br />
-      Per chi desiderasse farci un pensiero,
-      sarà possibile contribuire al nostro futuro insieme tramite bonifico.
-      <br /><br />
-      <strong>IBAN:</strong> ____________________________
-      <br />
-      <strong>Intestatario:</strong> Francesco Chiarelli & Roberta Russo
-    </p>
-  </section>
-
-  <footer>
-    Con amore, Francesco & Roberta
-  </footer>
-
-  <script>
-  /* =========================
-     COUNTDOWN
-  ========================== */
-  const weddingDate = new Date('May 1, 2026 10:30:00').getTime();
-
-  const countdownInterval = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    if (distance < 0) {
-      clearInterval(countdownInterval);
-      document.getElementById("countdown").innerHTML =
-        "È arrivato il grande giorno! 💍";
-      return;
+    /* COUNTDOWN */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 30px;
+      flex-wrap: wrap;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    .time-box {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 16px 18px;
+      min-width: 90px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
 
-    document.getElementById("cd-days").innerText = days;
-    document.getElementById("cd-hours").innerText = hours;
-    document.getElementById("cd-minutes").innerText = minutes;
-    document.getElementById("cd-seconds").innerText = seconds;
-  }, 1000);
+    .time-box .num {
+      display: block;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #2f2f2f;
+    }
 
-  /* =========================
-     PASSWORD
-  ========================== */
+    .time-box .label {
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: #8fa89b;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- PASSWORD -->
+<script>
   const PASSWORD = "amore2026";
   const entered = prompt("Inserisci la password per accedere al sito:");
 
@@ -253,6 +135,142 @@
       "<h1 style='text-align:center;margin-top:60px;'>Accesso riservato</h1>";
   }
 </script>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Francesco & Roberta</h1>
+  <span>1 Maggio 2026</span>
+</section>
+
+<!-- STORIA -->
+<section>
+  <h2>La nostra storia</h2>
+  <div class="divider"></div>
+  <p>
+    Ci siamo incontrati, ci siamo riconosciuti e ci siamo scelti.
+    <br><br>
+    Tra sorrisi, sogni e promesse, il 1 Maggio 2026 inizierà il capitolo più bello
+    della nostra storia.
+    <br><br>
+    Con voi accanto, sarà ancora più speciale.
+  </p>
+</section>
+
+<!-- CERIMONIA -->
+<section style="background-color:#fff;">
+  <h2>La cerimonia</h2>
+  <div class="divider"></div>
+  <p class="location">
+    Giovedì 1 Maggio 2026 – ore 10:30<br>
+    Chiesa Mater Ecclesiae<br>
+    Via Concilio Vaticano II<br>
+    Bernalda (MT)
+  </p>
+  <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed"
+    width="100%" height="300"
+    style="border:0; border-radius:12px; margin-top:30px;"
+    loading="lazy"></iframe>
+</section>
+
+<!-- RICEVIMENTO -->
+<section>
+  <h2>Il ricevimento</h2>
+  <div class="divider"></div>
+  <p class="location">
+    Notedimare Ricevimenti<br>
+    Via del Lido, 1<br>
+    75012 – Lido di Metaponto (MT)
+  </p>
+  <p>
+    Dopo la cerimonia vi accoglieremo in una cornice elegante e luminosa,
+    dove brindare all’amore e all’inizio della nostra vita insieme.
+  </p>
+  <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"
+    width="100%" height="300"
+    style="border:0; border-radius:12px; margin-top:30px;"
+    loading="lazy"></iframe>
+</section>
+
+<!-- COUNTDOWN -->
+<section>
+  <h2>Manca poco</h2>
+  <div class="divider"></div>
+
+  <div id="countdown" class="countdown">
+    <div class="time-box">
+      <span id="cd-days" class="num">0</span>
+      <span class="label">giorni</span>
+    </div>
+    <div class="time-box">
+      <span id="cd-hours" class="num">0</span>
+      <span class="label">ore</span>
+    </div>
+    <div class="time-box">
+      <span id="cd-minutes" class="num">0</span>
+      <span class="label">minuti</span>
+    </div>
+    <div class="time-box">
+      <span id="cd-seconds" class="num">0</span>
+      <span class="label">secondi</span>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section style="background-color:#fff;">
+  <h2>Conferma presenza</h2>
+  <div class="divider"></div>
+  <p>
+    Il vostro affetto è il regalo più prezioso.<br>
+    Vi chiediamo gentilmente di confermare la vostra presenza.
+  </p>
+</section>
+
+<!-- IBAN -->
+<section>
+  <h2>Un pensiero per noi</h2>
+  <div class="divider"></div>
+  <p>
+    La vostra presenza sarà per noi il dono più grande.
+    <br><br>
+    Per chi desiderasse farci un pensiero,
+    sarà possibile contribuire al nostro futuro insieme tramite bonifico.
+    <br><br>
+    <strong>IBAN:</strong> IT02U0306234210000003060477<br>
+    <strong>Intestatario:</strong> Francesco Chiarelli &amp; Roberta Russo
+  </p>
+</section>
+
+<footer>
+  Con amore, Francesco & Roberta
+</footer>
+
+<script>
+  const weddingDate = new Date("May 1, 2026 10:30:00").getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if (distance < 0) {
+      document.getElementById("countdown").innerHTML =
+        "È arrivato il grande giorno! 💍";
+      return;
+    }
+
+    document.getElementById("cd-days").innerText =
+      Math.floor(distance / (1000 * 60 * 60 * 24));
+    document.getElementById("cd-hours").innerText =
+      Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    document.getElementById("cd-minutes").innerText =
+      Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    document.getElementById("cd-seconds").innerText =
+      Math.floor((distance % (1000 * 60)) / 1000);
+  }, 1000);
+</script>
+
+</body>
+</html>
 
 
 </body>
