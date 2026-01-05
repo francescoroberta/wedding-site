@@ -215,37 +215,45 @@
   </footer>
 
   <script>
-    // Countdown script
-    const countdownElement = document.getElementById('countdown');
-    const weddingDate = new Date('May 1, 2026 10:30:00').getTime();
+  /* =========================
+     COUNTDOWN
+  ========================== */
+  const weddingDate = new Date('May 1, 2026 10:30:00').getTime();
 
-    const countdownInterval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
+  const countdownInterval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-document.getElementById("cd-days").innerText = days;
-document.getElementById("cd-hours").innerText = hours;
-document.getElementById("cd-minutes").innerText = minutes;
-document.getElementById("cd-seconds").innerText = seconds;
-
-      if (distance < 0) {
-        clearInterval(countdownInterval);
-       document.getElementById("countdown").innerHTML =
-  "È arrivato il grande giorno! 💍";
-    }, 1000);
-
-    // Password protection
-    const password = 'amore2026';
-    const entered = prompt('Inserisci la password per accedere al sito:');
-    if (entered !== password) {
-      document.body.innerHTML = '<h1 style="text-align:center; margin-top:50px;">Password errata. Accesso negato.</h1>';
+    if (distance < 0) {
+      clearInterval(countdownInterval);
+      document.getElementById("countdown").innerHTML =
+        "È arrivato il grande giorno! 💍";
+      return;
     }
-  </script>
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("cd-days").innerText = days;
+    document.getElementById("cd-hours").innerText = hours;
+    document.getElementById("cd-minutes").innerText = minutes;
+    document.getElementById("cd-seconds").innerText = seconds;
+  }, 1000);
+
+  /* =========================
+     PASSWORD
+  ========================== */
+  const PASSWORD = "amore2026";
+  const entered = prompt("Inserisci la password per accedere al sito:");
+
+  if (entered !== PASSWORD) {
+    document.body.innerHTML =
+      "<h1 style='text-align:center;margin-top:60px;'>Accesso riservato</h1>";
+  }
+</script>
+
 
 </body>
 </html>
