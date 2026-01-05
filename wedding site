@@ -1,22 +1,60 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Francesco & Roberta – 1 Maggio 2026</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      color: #2f2f2f;
       background-color: #f5f7f4;
+      color: #2f2f2f;
+    }
+
+    body.locked {
+      display: none;
+    }
+
+    /* MENU */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(143,168,155,0.9);
+      backdrop-filter: blur(6px);
+      z-index: 999;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+      padding: 14px 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f6f2ea;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #c9a24d;
     }
 
     section {
-      padding: 80px 20px;
+      padding: 110px 20px 80px;
       max-width: 900px;
       margin: auto;
       text-align: center;
@@ -25,25 +63,13 @@
     h1, h2 {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
-      color: #2f2f2f;
     }
 
     h2::after {
       content: "✦";
       display: block;
       color: #c9a24d;
-      font-size: 1.2rem;
       margin-top: 10px;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 30px;
     }
 
     p {
@@ -51,43 +77,82 @@
       line-height: 1.8;
     }
 
+    .section-separator {
+      width: 140px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #c9a24d, transparent);
+      margin: 40px auto;
+    }
+
+    /* HERO */
     .hero {
-      background: linear-gradient(rgba(143,168,155,0.35), rgba(143,168,155,0.35)), url('hero.jpg') center/cover no-repeat;
-      color: #fff;
-      min-height: 100vh;
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      padding-top: 70px;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .hero-slide.active { opacity: 1; }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(143,168,155,0.45);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 0 20px;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-    }
-
-    .hero span {
-      letter-spacing: 2px;
-      font-size: 1.1rem;
-    }
-
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: #8fa89b;
-      margin: 30px auto;
-    }
-
-    .location {
-      font-weight: 500;
-    }
-
-    footer {
-      background-color: #8fa89b;
-      color: #fff;
-      padding: 40px 20px;
+      color: #f6f2ea;
       text-align: center;
-      font-size: 0.9rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      margin: 6px 0;
+    }
+
+    .hero-content .tagline {
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    img.section-img {
+      width: 100%;
+      border-radius: 16px;
+      margin: 40px 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+      border: 0;
+      margin-top: 30px;
     }
 
     /* COUNTDOWN */
@@ -100,7 +165,7 @@
     }
 
     .time-box {
-      background: #ffffff;
+      background: #fff;
       border-radius: 14px;
       padding: 16px 18px;
       min-width: 90px;
@@ -111,133 +176,188 @@
       display: block;
       font-size: 2rem;
       font-weight: 600;
-      color: #2f2f2f;
     }
 
     .time-box .label {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       letter-spacing: 1px;
       color: #8fa89b;
       text-transform: uppercase;
     }
+
+    /* RSVP */
+    form {
+      max-width: 420px;
+      margin: 40px auto 0;
+      text-align: left;
+    }
+
+    label {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    button {
+      width: 100%;
+      background: #8fa89b;
+      color: #fff;
+      padding: 14px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    footer {
+      background: #8fa89b;
+      color: #fff;
+      padding: 40px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.2rem; }
+      .hero-content p { font-size: 1.1rem; }
+    }
   </style>
 </head>
 
-<body>
+<body class="locked">
 
 <!-- PASSWORD -->
 <script>
   const PASSWORD = "amore2026";
   const entered = prompt("Inserisci la password per accedere al sito:");
 
-  if (entered !== PASSWORD) {
+  if (entered === PASSWORD) {
+    document.body.classList.remove("locked");
+  } else {
     document.body.innerHTML =
       "<h1 style='text-align:center;margin-top:60px;'>Accesso riservato</h1>";
   }
 </script>
 
+<!-- MENU -->
+<nav>
+  <ul>
+    <li><a href="#storia">La nostra storia</a></li>
+    <li><a href="#cerimonia">Cerimonia</a></li>
+    <li><a href="#ricevimento">Ricevimento</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+    <li><a href="#iban">Un pensiero per noi</a></li>
+  </ul>
+</nav>
+
 <!-- HERO -->
 <section class="hero">
-  <h1>Francesco & Roberta</h1>
-  <span>1 Maggio 2026</span>
-</section>
+  <div class="hero-slide active" style="background-image:url('images/hero1.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero2.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero3.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero4.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero5.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/hero6.jpg')"></div>
 
-<!-- STORIA -->
-<section>
-  <h2>La nostra storia</h2>
-  <div class="divider"></div>
-  <p>
-    Ci siamo incontrati, ci siamo riconosciuti e ci siamo scelti.
-    <br><br>
-    Tra sorrisi, sogni e promesse, il 1 Maggio 2026 inizierà il capitolo più bello
-    della nostra storia.
-    <br><br>
-    Con voi accanto, sarà ancora più speciale.
-  </p>
-</section>
+  <div class="hero-overlay"></div>
 
-<!-- CERIMONIA -->
-<section style="background-color:#fff;">
-  <h2>La cerimonia</h2>
-  <div class="divider"></div>
-  <p class="location">
-    Giovedì 1 Maggio 2026 – ore 10:30<br>
-    Chiesa Mater Ecclesiae<br>
-    Via Concilio Vaticano II<br>
-    Bernalda (MT)
-  </p>
-  <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed"
-    width="100%" height="300"
-    style="border:0; border-radius:12px; margin-top:30px;"
-    loading="lazy"></iframe>
-</section>
-
-<!-- RICEVIMENTO -->
-<section>
-  <h2>Il ricevimento</h2>
-  <div class="divider"></div>
-  <p class="location">
-    Notedimare Ricevimenti<br>
-    Via del Lido, 1<br>
-    75012 – Lido di Metaponto (MT)
-  </p>
-  <p>
-    Dopo la cerimonia vi accoglieremo in una cornice elegante e luminosa,
-    dove brindare all’amore e all’inizio della nostra vita insieme.
-  </p>
-  <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"
-    width="100%" height="300"
-    style="border:0; border-radius:12px; margin-top:30px;"
-    loading="lazy"></iframe>
-</section>
-
-<!-- COUNTDOWN -->
-<section>
-  <h2>Manca poco</h2>
-  <div class="divider"></div>
-
-  <div id="countdown" class="countdown">
-    <div class="time-box">
-      <span id="cd-days" class="num">0</span>
-      <span class="label">giorni</span>
-    </div>
-    <div class="time-box">
-      <span id="cd-hours" class="num">0</span>
-      <span class="label">ore</span>
-    </div>
-    <div class="time-box">
-      <span id="cd-minutes" class="num">0</span>
-      <span class="label">minuti</span>
-    </div>
-    <div class="time-box">
-      <span id="cd-seconds" class="num">0</span>
-      <span class="label">secondi</span>
-    </div>
+  <div class="hero-content">
+    <h1>Francesco & Roberta</h1>
+    <p>1 Maggio 2026</p>
+    <p class="tagline">Il nostro “per sempre” inizia qui</p>
   </div>
 </section>
 
-<!-- RSVP -->
-<section style="background-color:#fff;">
-  <h2>Conferma presenza</h2>
-  <div class="divider"></div>
+<div class="section-separator"></div>
+
+<section id="storia">
+  <h2>La nostra storia</h2>
   <p>
-    Il vostro affetto è il regalo più prezioso.<br>
-    Vi chiediamo gentilmente di confermare la vostra presenza.
+    Ci siamo incontrati, ci siamo riconosciuti e, giorno dopo giorno, ci siamo scelti.<br><br>
+    Il 1 Maggio 2026 celebreremo il nostro amore e l’inizio di una nuova vita insieme.<br><br>
+    Saremo felici di condividere questo momento speciale con le persone che amiamo.
   </p>
 </section>
 
-<!-- IBAN -->
-<section>
-  <h2>Un pensiero per noi</h2>
-  <div class="divider"></div>
+<div class="section-separator"></div>
+
+<section id="cerimonia" style="background:#fff;">
+  <h2>La cerimonia</h2>
+  <img src="images/chiesa.jpg" class="section-img">
   <p>
-    La vostra presenza sarà per noi il dono più grande.
-    <br><br>
-    Per chi desiderasse farci un pensiero,
-    sarà possibile contribuire al nostro futuro insieme tramite bonifico.
-    <br><br>
-    <strong>IBAN:</strong> IT02U0306234210000003060477<br>
-    <strong>Intestatario:</strong> Francesco Chiarelli &amp; Roberta Russo
+    Giovedì 1 Maggio 2026 alle ore 10:30<br>
+    Chiesa Mater Ecclesiae – Bernalda (MT)
+  </p>
+  <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed"></iframe>
+</section>
+
+<div class="section-separator"></div>
+
+<section id="ricevimento">
+  <h2>Il ricevimento</h2>
+  <img src="images/ricevimento.jpg" class="section-img">
+  <p>
+    Dopo la cerimonia vi aspettiamo presso Notedimare Ricevimenti,
+    per brindare insieme all’inizio della nostra vita insieme.
+  </p>
+  <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
+</section>
+
+<div class="section-separator"></div>
+
+<section>
+  <h2>Manca poco</h2>
+  <div id="countdown" class="countdown">
+    <div class="time-box"><span id="cd-days" class="num">0</span><span class="label">giorni</span></div>
+    <div class="time-box"><span id="cd-hours" class="num">0</span><span class="label">ore</span></div>
+    <div class="time-box"><span id="cd-minutes" class="num">0</span><span class="label">minuti</span></div>
+    <div class="time-box"><span id="cd-seconds" class="num">0</span><span class="label">secondi</span></div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
+
+<section id="rsvp">
+  <h2>Conferma la tua presenza</h2>
+
+  <form action="https://formspree.io/f/maqykkbe" method="POST">
+    <label>Nome e Cognome</label>
+    <input type="text" name="Nome e Cognome" required>
+
+    <label>Email</label>
+    <input type="email" name="Email" required>
+
+    <label>Parteciperai?</label>
+    <select id="partecipazione" name="Parteciperai" required>
+      <option value="">Seleziona</option>
+      <option value="Sì">Sì</option>
+      <option value="No">No</option>
+    </select>
+
+    <div id="intolleranzeBox" style="display:none;">
+      <label>Intolleranze alimentari</label>
+      <textarea name="Intolleranze"></textarea>
+    </div>
+
+    <button type="submit">Invia conferma</button>
+  </form>
+</section>
+
+<div class="section-separator"></div>
+
+<section id="iban" style="background:#fff;">
+  <h2>Un pensiero per noi</h2>
+  <p>
+    IBAN: <strong>IT02U0306234210000003060477</strong><br>
+    Intestatario: Francesco Chiarelli & Roberta Russo
   </p>
 </section>
 
@@ -246,32 +366,35 @@
 </footer>
 
 <script>
-  const weddingDate = new Date("May 1, 2026 10:30:00").getTime();
-
+  /* SLIDESHOW */
+  const slides = document.querySelectorAll(".hero-slide");
+  let i = 0;
   setInterval(() => {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
+    slides[i].classList.remove("active");
+    i = (i + 1) % slides.length;
+    slides[i].classList.add("active");
+  }, 5000);
 
-    if (distance < 0) {
-      document.getElementById("countdown").innerHTML =
-        "È arrivato il grande giorno! 💍";
+  /* COUNTDOWN */
+  const weddingDate = new Date("May 1, 2026 10:30:00").getTime();
+  setInterval(() => {
+    const d = weddingDate - new Date().getTime();
+    if (d <= 0) {
+      document.getElementById("countdown").innerHTML = "È arrivato il grande giorno! 💍";
       return;
     }
-
-    document.getElementById("cd-days").innerText =
-      Math.floor(distance / (1000 * 60 * 60 * 24));
-    document.getElementById("cd-hours").innerText =
-      Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    document.getElementById("cd-minutes").innerText =
-      Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    document.getElementById("cd-seconds").innerText =
-      Math.floor((distance % (1000 * 60)) / 1000);
+    cd-days.innerText = Math.floor(d / 86400000);
+    cd-hours.innerText = Math.floor((d % 86400000) / 3600000);
+    cd-minutes.innerText = Math.floor((d % 3600000) / 60000);
+    cd-seconds.innerText = Math.floor((d % 60000) / 1000);
   }, 1000);
+
+  /* RSVP */
+  document.getElementById("partecipazione").addEventListener("change", e => {
+    document.getElementById("intolleranzeBox").style.display =
+      e.target.value === "Sì" ? "block" : "none";
+  });
 </script>
-
-</body>
-</html>
-
 
 </body>
 </html>
