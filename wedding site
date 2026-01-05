@@ -76,6 +76,36 @@
       font-size: 0.9rem;
     }
   </style>
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  min-width: 90px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.time-box .num {
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+
+.time-box .label {
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: #8fa89b;
+  text-transform: uppercase;
+}
+
 </head>
 <body>
 
@@ -132,7 +162,25 @@
   <section>
     <h2>Manca poco</h2>
     <div class="divider"></div>
-    <p id="countdown" style="font-size:1.4rem; font-weight:500;"></p>
+    <div id="countdown" class="countdown">
+  <div class="time-box">
+    <span id="cd-days" class="num">0</span>
+    <span class="label">giorni</span>
+  </div>
+  <div class="time-box">
+    <span id="cd-hours" class="num">0</span>
+    <span class="label">ore</span>
+  </div>
+  <div class="time-box">
+    <span id="cd-minutes" class="num">0</span>
+    <span class="label">minuti</span>
+  </div>
+  <div class="time-box">
+    <span id="cd-seconds" class="num">0</span>
+    <span class="label">secondi</span>
+  </div>
+</div>
+
   </section>
 
   <!-- RSVP -->
@@ -169,19 +217,26 @@
   <script>
     // Countdown script
     const countdownElement = document.getElementById('countdown');
-    const weddingDate = new Date('May 1, 2026 00:00:00').getTime();
+    const weddingDate = new Date('May 1, 2026 10:30:00').getTime();
+
     const countdownInterval = setInterval(() => {
       const now = new Date().getTime();
       const distance = weddingDate - now;
+
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      countdownElement.innerHTML = `${days} giorni ${hours}h ${minutes}m ${seconds}s`;
+
+document.getElementById("cd-days").innerText = days;
+document.getElementById("cd-hours").innerText = hours;
+document.getElementById("cd-minutes").innerText = minutes;
+document.getElementById("cd-seconds").innerText = seconds;
+
       if (distance < 0) {
         clearInterval(countdownInterval);
-        countdownElement.innerHTML = 'È arrivato il grande giorno!';
-      }
+       document.getElementById("countdown").innerHTML =
+  "È arrivato il grande giorno! 💍";
     }, 1000);
 
     // Password protection
