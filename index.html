@@ -263,10 +263,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-slide active" style="background-image:url('images/hero1.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('images/hero2.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('images/hero3.jpg')"></div>
-
+ 
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>Francesco & Roberta</h1>
@@ -381,15 +378,6 @@
   Con amore, Francesco & Roberta
 </footer>
 
-<script>
-  /* SLIDESHOW */
-  const slides = document.querySelectorAll('.hero-slide');
-  let index = 0;
-  setInterval(() => {
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
-  }, 5000);
 
   /* COUNTDOWN */
   const weddingDate = new Date("May 1, 2026 10:30:00").getTime();
