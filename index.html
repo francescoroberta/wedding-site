@@ -17,6 +17,7 @@
       color: #2f2f2f;
     }
 
+    /* BLOCCO PASSWORD */
     body.locked {
       display: none;
     }
@@ -35,8 +36,8 @@
       list-style: none;
       display: flex;
       justify-content: center;
-      gap: 26px;
-      padding: 14px 0;
+      gap: 22px;
+      padding: 12px 10px;
       margin: 0;
       flex-wrap: wrap;
     }
@@ -44,17 +45,19 @@
     nav a {
       text-decoration: none;
       color: #f6f2ea;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       letter-spacing: 1px;
       font-weight: 500;
     }
 
-    nav a:hover {
-      color: #c9a24d;
+    nav span {
+      color: #f6f2ea;
+      font-size: 0.75rem;
+      opacity: 0.9;
     }
 
     section {
-      padding: 110px 20px 80px;
+      padding: 120px 20px 80px;
       max-width: 900px;
       margin: auto;
       text-align: center;
@@ -101,7 +104,9 @@
       transition: opacity 1.5s ease-in-out;
     }
 
-    .hero-slide.active { opacity: 1; }
+    .hero-slide.active {
+      opacity: 1;
+    }
 
     .hero-overlay {
       position: absolute;
@@ -123,9 +128,8 @@
     }
 
     .hero-content h1 {
-      font-size: 3.5rem;
+      font-size: 3.4rem;
       letter-spacing: 2px;
-      margin-bottom: 10px;
     }
 
     .hero-content p {
@@ -135,7 +139,6 @@
     }
 
     .hero-content .tagline {
-      font-size: 1.1rem;
       font-style: italic;
       margin-top: 10px;
     }
@@ -173,15 +176,14 @@
     }
 
     .time-box .num {
-      display: block;
       font-size: 2rem;
       font-weight: 600;
     }
 
     .time-box .label {
       font-size: 0.8rem;
-      letter-spacing: 1px;
       color: #8fa89b;
+      letter-spacing: 1px;
       text-transform: uppercase;
     }
 
@@ -237,9 +239,9 @@
 <!-- PASSWORD -->
 <script>
   const PASSWORD = "amore2026";
-  const entered = prompt("Inserisci la password per accedere al sito:");
+  const risposta = prompt("Inserisci la password per accedere al sito:");
 
-  if (entered === PASSWORD) {
+  if (risposta === PASSWORD) {
     document.body.classList.remove("locked");
   } else {
     document.body.innerHTML =
@@ -250,11 +252,12 @@
 <!-- MENU -->
 <nav>
   <ul>
-    <li><a href="#storia">La nostra storia</a></li>
+    <li><a href="#storia">Storia</a></li>
     <li><a href="#cerimonia">Cerimonia</a></li>
     <li><a href="#ricevimento">Ricevimento</a></li>
     <li><a href="#rsvp">RSVP</a></li>
-    <li><a href="#iban">Un pensiero per noi</a></li>
+    <li><a href="#iban">IBAN</a></li>
+    <li><span id="topCountdown">—</span></li>
   </ul>
 </nav>
 
@@ -263,16 +266,12 @@
   <div class="hero-slide active" style="background-image:url('images/hero1.jpg')"></div>
   <div class="hero-slide" style="background-image:url('images/hero2.jpg')"></div>
   <div class="hero-slide" style="background-image:url('images/hero3.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('images/hero4.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('images/hero5.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('images/hero6.jpg')"></div>
 
   <div class="hero-overlay"></div>
-
   <div class="hero-content">
     <h1>Francesco & Roberta</h1>
     <p>1 Maggio 2026</p>
-    <p class="tagline">Il nostro “per sempre” inizia qui</p>
+    <p class="tagline">Il nostro per sempre inizia qui</p>
   </div>
 </section>
 
@@ -281,9 +280,11 @@
 <section id="storia">
   <h2>La nostra storia</h2>
   <p>
-    Ci siamo incontrati, ci siamo riconosciuti e, giorno dopo giorno, ci siamo scelti.<br><br>
-    Il 1 Maggio 2026 celebreremo il nostro amore e l’inizio di una nuova vita insieme.<br><br>
-    Saremo felici di condividere questo momento speciale con le persone che amiamo.
+    Ci siamo conosciuti per caso il 14 ottobre 2025.<br>
+    Il 25 ottobre ci siamo visti per la prima volta e da quel giorno<br>
+    non ci siamo più lasciati.<br><br>
+    Oggi siamo pronti a dirci sì e a iniziare insieme il capitolo più bello
+    della nostra vita.
   </p>
 </section>
 
@@ -292,10 +293,7 @@
 <section id="cerimonia" style="background:#fff;">
   <h2>La cerimonia</h2>
   <img src="images/chiesa.jpg" class="section-img">
-  <p>
-    Giovedì 1 Maggio 2026 alle ore 10:30<br>
-    Chiesa Mater Ecclesiae – Bernalda (MT)
-  </p>
+  <p>Giovedì 1 Maggio 2026 – ore 10:30<br>Chiesa Mater Ecclesiae, Bernalda</p>
   <iframe src="https://www.google.com/maps?q=Chiesa+Mater+Ecclesiae+Bernalda&output=embed"></iframe>
 </section>
 
@@ -304,10 +302,7 @@
 <section id="ricevimento">
   <h2>Il ricevimento</h2>
   <img src="images/ricevimento.jpg" class="section-img">
-  <p>
-    Dopo la cerimonia vi aspettiamo presso Notedimare Ricevimenti,
-    per brindare insieme all’inizio della nostra vita insieme.
-  </p>
+  <p>Dopo la cerimonia festeggeremo insieme a Notedimare Ricevimenti.</p>
   <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
 </section>
 
@@ -316,10 +311,10 @@
 <section>
   <h2>Manca poco</h2>
   <div id="countdown" class="countdown">
-    <div class="time-box"><span id="cd-days" class="num">0</span><span class="label">giorni</span></div>
-    <div class="time-box"><span id="cd-hours" class="num">0</span><span class="label">ore</span></div>
-    <div class="time-box"><span id="cd-minutes" class="num">0</span><span class="label">minuti</span></div>
-    <div class="time-box"><span id="cd-seconds" class="num">0</span><span class="label">secondi</span></div>
+    <div class="time-box"><div id="days" class="num">0</div><div class="label">Giorni</div></div>
+    <div class="time-box"><div id="hours" class="num">0</div><div class="label">Ore</div></div>
+    <div class="time-box"><div id="minutes" class="num">0</div><div class="label">Minuti</div></div>
+    <div class="time-box"><div id="seconds" class="num">0</div><div class="label">Secondi</div></div>
   </div>
 </section>
 
@@ -343,7 +338,7 @@
     </select>
 
     <div id="intolleranzeBox" style="display:none;">
-      <label>Intolleranze alimentari</label>
+      <label>Intolleranze o esigenze alimentari</label>
       <textarea name="Intolleranze"></textarea>
     </div>
 
@@ -355,11 +350,6 @@
 
 <section id="iban" style="background:#fff;">
   <h2>Un pensiero per noi</h2>
-        La vostra presenza sarà per noi il dono più grande.
-      <br /><br />
-      Per chi desiderasse farci un pensiero per contribuire al nostro futuro.
-      <br /><br />
-
   <p>
     IBAN: <strong>IT02U0306234210000003060477</strong><br>
     Intestatario: Francesco Chiarelli & Roberta Russo
@@ -372,38 +362,41 @@
 
 <script>
   /* SLIDESHOW */
-  const slides = document.querySelectorAll(".hero-slide");
-  let i = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+  let index = 0;
   setInterval(() => {
-    slides[i].classList.remove("active");
-    i = (i + 1) % slides.length;
-    slides[i].classList.add("active");
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
   }, 5000);
 
   /* COUNTDOWN */
   const weddingDate = new Date("May 1, 2026 10:30:00").getTime();
+
   setInterval(() => {
-    const d = weddingDate - new Date().getTime();
-    if (d <= 0) {
-      document.getElementById("countdown").innerHTML = "È arrivato il grande giorno! 💍";
-      return;
-    }
-    cd-days.innerText = Math.floor(d / 86400000);
-    cd-hours.innerText = Math.floor((d % 86400000) / 3600000);
-    cd-minutes.innerText = Math.floor((d % 3600000) / 60000);
-    cd-seconds.innerText = Math.floor((d % 60000) / 1000);
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) return;
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    days.textContent = d;
+    hours.textContent = h;
+    minutes.textContent = m;
+    seconds.textContent = s;
+
+    topCountdown.textContent = `${d}g ${h}h ${m}m`;
   }, 1000);
 
   /* RSVP */
-  document.getElementById("partecipazione").addEventListener("change", e => {
-    document.getElementById("intolleranzeBox").style.display =
-      e.target.value === "Sì" ? "block" : "none";
+  partecipazione.addEventListener("change", e => {
+    intolleranzeBox.style.display = e.target.value === "Sì" ? "block" : "none";
   });
 </script>
-
-</body>
-</html>
-
 
 </body>
 </html>
