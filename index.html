@@ -404,14 +404,9 @@
 </footer>
 
 <script>
-  const daysEl = document.getElementById("days");
-  const hoursEl = document.getElementById("hours");
-  const minutesEl = document.getElementById("minutes");
-  const secondsEl = document.getElementById("seconds");
-  const topCountdownEl = document.getElementById("topCountdown");
-
-  <script>
-/* COUNTDOWN – VERSIONE SICURA */
+/* =========================
+   COUNTDOWN
+========================= */
 const weddingDate = new Date("May 1, 2026 10:30:00").getTime();
 
 const daysEl = document.getElementById("days");
@@ -425,7 +420,8 @@ setInterval(() => {
   const diff = weddingDate - now;
 
   if (diff <= 0) {
-    document.getElementById("countdown").innerHTML = "È arrivato il grande giorno! 💍";
+    document.getElementById("countdown").innerHTML =
+      "È arrivato il grande giorno! 💍";
     if (topCountdownEl) topCountdownEl.textContent = "Oggi 💍";
     return;
   }
@@ -435,35 +431,30 @@ setInterval(() => {
   const m = Math.floor((diff / (1000 * 60)) % 60);
   const s = Math.floor((diff / 1000) % 60);
 
-  if (daysEl) daysEl.textContent = d;
-  if (hoursEl) hoursEl.textContent = h;
-  if (minutesEl) minutesEl.textContent = m;
-  if (secondsEl) secondsEl.textContent = s;
+  daysEl.textContent = d;
+  hoursEl.textContent = h;
+  minutesEl.textContent = m;
+  secondsEl.textContent = s;
 
   if (topCountdownEl) {
     topCountdownEl.textContent = `${d}g ${h}h ${m}m`;
   }
 }, 1000);
 
-/* RSVP */
+/* =========================
+   RSVP – INTOLLERANZE
+========================= */
 const partecipazione = document.getElementById("partecipazione");
 const intolleranzeBox = document.getElementById("intolleranzeBox");
 
 if (partecipazione && intolleranzeBox) {
   partecipazione.addEventListener("change", e => {
-    intolleranzeBox.style.display = e.target.value === "Sì" ? "block" : "none";
+    intolleranzeBox.style.display =
+      e.target.value === "Sì" ? "block" : "none";
   });
 }
 </script>
 
-
-  const partecipazione = document.getElementById("partecipazione");
-  const intolleranzeBox = document.getElementById("intolleranzeBox");
-
-  partecipazione.addEventListener("change", e => {
-    intolleranzeBox.style.display = e.target.value === "Sì" ? "block" : "none";
-  });
-</script>
 
 </body>
 </html>
