@@ -93,6 +93,7 @@
       height: 100vh;
       overflow: hidden;
       padding-top: 70px;
+      background: #000; /* IMPORTANTE */
     }
 
     .hero-slide {
@@ -231,15 +232,23 @@
       .hero-content h1 { font-size: 2.2rem; }
       .hero-content p { font-size: 1.1rem; }
     }
-      /* VIDEO HERO */
-  .hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
+     .hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  z-index: 1;
+}
+
+.hero-content {
+  z-index: 2;
+}
 
   </style>
 </head>
@@ -274,9 +283,11 @@
 <!-- HERO -->
 <section class="hero">
   
- <video class="hero-video" autoplay muted loop playsinline>
+<video class="hero-video" autoplay muted loop playsinline preload="auto">
   <source src="videos/hero-video.mp4" type="video/mp4">
+  Il tuo browser non supporta il video.
 </video>
+
   
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -317,7 +328,7 @@
   <h2>Il ricevimento</h2>
   <img src="images/ricevimento.jpg" class="section-img">
 <!-- RICEVIMENTO -->
-  <section>
+  <div>
     <div class="divider"></div>
     <p class="location">
       Notedimare Ricevimenti<br />
@@ -327,7 +338,7 @@
     <p>
       Dopo la cerimonia vi accoglieremo in una cornice elegante e luminosa,
       dove brindare all’amore e all’inizio della nostra vita insieme.
-    </p>
+
 
   <iframe src="https://www.google.com/maps?q=Notedimare+Ricevimenti+Lido+di+Metaponto&output=embed"></iframe>
 </section>
