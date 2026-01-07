@@ -257,6 +257,31 @@
 .hero-content {
   z-index: 2;
 }
+/* =========================
+   SEZIONE SERVIZIO NAVETTA
+========================= */
+.navetta-section {
+  position: relative;
+  background-color: #ffffff;
+  background-image: url('images/icona-navetta.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 220px;
+  padding: 120px 20px;
+}
+
+.navetta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 0;
+}
+
+.navetta-section * {
+  position: relative;
+  z-index: 1;
+}
 
   </style>
 </head>
@@ -282,6 +307,7 @@
     <li><a href="#storia">Storia</a></li>
     <li><a href="#cerimonia">Cerimonia</a></li>
     <li><a href="#ricevimento">Ricevimento</a></li>
+    <li><a href="#Servizio Navetta">Servizio Navetta</a></li>
     <li><a href="#rsvp">RSVP</a></li>
     <li><a href="#iban">IBAN</a></li>
     <li><span id="topCountdown">—</span></li>
